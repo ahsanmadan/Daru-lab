@@ -1,0 +1,118 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daru Lab</title>
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1, user-scalable=no"
+  />
+  <link
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <link rel="stylesheet" href="assets/css/my/home.css" />
+  <link rel="stylesheet" href="assets/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/font/font.css" />
+  <script type="text/javascript">
+    $(window).on("scroll", function () {
+      if ($(window).scrollTop()) {
+        $("nav").addClass("black");
+      } else {
+        $("nav").removeClass("black");
+      }
+    });
+    /*menu button onclick function*/
+    $(document).ready(function () {
+      $(".menu h4").click(function () {
+        $("nav ul").toggleClass("active");
+      });
+    });
+    
+  </script>
+</head>
+
+<body>
+  <div class="responsive-bar">
+    <div class="menu">
+      <h4>Menu</h4>
+    </div>
+  </div>
+  <nav>
+    <div class="container d-flex">
+      <!-- <ul class="align-middle">
+        <li><a href="#">Produk</a></li>
+        <li><a href="#">Tentang</a></li>
+      </ul>
+      <div class="logo">
+        <img src="assets/img/logo.png" alt="logo" />
+      </div> -->
+      
+      <ul class="flex-col">
+        <li class="me-2"><a href="">Produk</a></li>
+        <li><a href="">Tentang</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <img
+    class="img-sec"
+    src="assets/img/pexels-nathan-cowley-713297.jpg"
+    alt=""
+  />
+
+  <div class="our-product mt-5">
+    <h1 class="text-center">Our Product</h1>
+    <div class="container product-view my-5">
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural
+                lead-in to yeheadditional content. This content is a little bit
+                longer.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a short card.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural
+                lead-in to additional content.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
