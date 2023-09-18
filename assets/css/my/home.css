@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family:'Poppins', sans-serif,; ;
+  font-family:'Poppins', sans-serif;
 }
 .responsive-bar {
   display: none;
@@ -14,25 +14,27 @@ nav {
   box-sizing: border-box;
   transition: 0.5s;
   height: 100px;
-  padding: 10px 50px;
+  line-height: 75px;
 }
 nav.black {
   background: #212E73;
   height: 80px;
-  padding: 10px 50px;
 }
 nav .container .logo {
   float: center;
 }
 nav .container .logo img {
-  height: 50px;
+  height: 45px;
   transition: 0.5s;
 }
 nav.black .container .logo img {
-  height: 50px;
+  height: 45px;
+}
+.cart{
+  float: right ;
 }
 nav .container > ul {
-  width: 80%;
+  width: 100%;
   float: right;
 }
 nav .container > ul > li {
@@ -50,7 +52,7 @@ nav .container > ul > li > a {
 }
 nav.black .container > ul > li > a {
   color: #fff;
-  line-height: 60px;
+  line-height: 75px;
 }
 
 .img-sec {
@@ -74,7 +76,7 @@ section.content {
     left: 0;
     padding: 5px 20px;
     box-sizing: border-box;
-    z-index: 1;
+    z-index: 2;
   }
   .responsive-bar .container .logo img {
     float: left;
