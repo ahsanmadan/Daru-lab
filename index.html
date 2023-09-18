@@ -2,6 +2,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daru Lab</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <meta
     name="viewport"
     content="width=device-width,initial-scale=1, user-scalable=no"
@@ -12,8 +13,9 @@
   />
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <link rel="stylesheet" href="assets/css/my/home.css" />
-  <link rel="stylesheet" href="assets/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
   <link rel="stylesheet" href="assets/font/font.css" />
+  <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
   <script type="text/javascript">
     $(window).on("scroll", function () {
       if ($(window).scrollTop()) {
@@ -28,91 +30,186 @@
         $("nav ul").toggleClass("active");
       });
     });
-    
   </script>
 </head>
 
 <body>
-  <div class="responsive-bar">
+  <!-- <div class="responsive-bar">
     <div class="menu">
       <h4>Menu</h4>
     </div>
-  </div>
-  <nav>
+  </div> -->
+  <!-- <nav class="z-2">
     <div class="container d-flex">
-      <!-- <ul class="align-middle">
-        <li><a href="#">Produk</a></li>
-        <li><a href="#">Tentang</a></li>
-      </ul>
-      <div class="logo">
-        <img src="assets/img/logo.png" alt="logo" />
-      </div> -->
-      
       <ul class="flex-col">
         <li class="me-2"><a href="">Produk</a></li>
         <li><a href="">Tentang</a></li>
       </ul>
+      <a class="logo" style="margin: 0; float: none; text-align: center">
+        <img src="assets/img/logo.png" alt="" height="40px" />
+      </a>
     </div>
-  </nav>
+  </nav> -->
 
-  <img
-    class="img-sec"
-    src="assets/img/pexels-nathan-cowley-713297.jpg"
-    alt=""
-  />
+  
 
-  <div class="our-product mt-5">
-    <h1 class="text-center">Our Product</h1>
-    <div class="container product-view my-5">
-      <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Produk 1</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to yeheadditional content. This content is a little bit
-                longer.
-              </p>
-            </div>
-          </div>
+  <div
+    class="ban-image w-100 vh-100 d-flex justify-content-start align-items-center"
+  >
+    <div class="content container text-start">
+      <h1 class="text-white mt-5 col-md-6 judul gara">
+        From Stains to Sparkle, We've Got the Magic Formula!
+      </h1>
+      <a
+        href="#formula"
+        class="btn btn-outline-light mt-4 fs-4 rounded-pill py-2 px-4"
+        >See Formula's</a
+      >
+    </div>
+  </div>
+
+  <div class="container mt-5 text-center mb-5 z-0" id="formula">
+    <h3 class="mb-5" data-aos="zoom-in-up">Our Products</h3>
+    <div class="row mb-3">
+      <div class="col-md-2"></div>
+      <div class="col-md-2 mb-3">
+        <img
+          class="img-fluid mb-3"
+          src="assets/img/image product/1.png"
+          alt=""
+          data-aos="zoom-in-up"
+        />
+        <p>Pil pembersih Mesin Cuci</p>
+        <button class="btn btn-outline-daru rounded-pill py-2 px-4">
+          Beli Sekarang
+        </button>
+      </div>
+      <div class="col-md-2 mb-3">
+        <img
+          class="img-fluid mb-3"
+          src="assets/img/image product/2.png"
+          alt=""
+          data-aos="zoom-in-up"
+        />
+        <p>Pil pembersih Kaca Daru</p>
+        <button class="btn btn-outline-daru rounded-pill py-2 px-4">
+          Beli Sekarang
+        </button>
+      </div>
+      <div class="col-md-2 mb-3">
+        <img
+          class="img-fluid mb-3"
+          src="assets/img/image product/3.png"
+          alt=""
+          data-aos="zoom-in-up"
+        />
+        <p>Pil pembersih Kloset Duduk</p>
+        <button class="btn btn-outline-daru rounded-pill py-2 px-4">
+          Beli Sekarang
+        </button>
+      </div>
+      <div class="col-md-2 mb-3">
+        <img
+          class="img-fluid mb-3"
+          src="assets/img/image product/4.png"
+          alt=""
+          data-aos="zoom-in-up"
+        />
+        <p>Pil pembersih Wiper Mobil</p>
+        <button class="btn btn-outline-daru rounded-pill py-2 px-4">
+          Beli Sekarang
+        </button>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="d-grid gap-2">
+          <button class="btn btn-daru rounded-pill" type="button">
+            Lihat Semua
+          </button>
         </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Produk 2</h5>
-              <p class="card-text">This is Product</p>
-            </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+
+  <div
+    class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center mt-5"
+  >
+    <div class="content container text-center">
+      <h2 class="text-white tulis">Daru Lab</h2>
+      <h2 class="text-white tulis">is here to preserve the earth.</h2>
+      <p class="text-white mt-4 fs-4 tulis">
+        We make cleaning pills made from natural ingredients and minimise the
+        use of single-use materials - because small changes can make a big
+        impact.
+      </p>
+      <button class="btn btn-outline-light mt-4 fs-4 rounded-pill py-2 px-4">
+        About Us
+      </button>
+    </div>
+  </div>
+
+  <div class="container-fluid footer">
+    <div class="container text-white">
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="col-md-6 text-center">
+            <img src="assets/img/map.png" alt="" class="my-3 img-fluid" />
           </div>
+          <div class="col-md-6"></div>
+          <p>
+            <img src="assets/img/logo.png" alt="" height="40px" /> Copyright
+            ©2023 – Daru Lab. – All rights reserved.
+          </p>
         </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Produk 3</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content.
-              </p>
+        <div class="col-md-6 mt-5">
+          <div class="row">
+            <!-- <div class="col-md-2">
+              <h4>Product</h4>
+              <a href="" class="footer-link">All Products</a>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Produk 4</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
+            <div class="col-md-4 flex-col">
+              <h4>About</h4>
+              <a href="" class="footer-link">Sustainability</a>
+              <a href="" class="footer-link">About Us</a>
+              <a href="" class="footer-link">FAQ</a>
+            </div>
+            <div class="col-md-6">
+              <h4>Contact</h4>
+              <a href="" class="footer-link">62 812-1656-1016</a>
+              <a href="" class="footer-link">daru.lab@gmail.com</a>
+              <a href="" class="footer-link">Jl. Medokan Asri Utara XIV No.35. Medokan Ayu, Kec. Rungkut, Kota Surabaya,
+                Jawa Timur 602950</a>
+            </div> -->
+
+            <div class="col-md-3 d-flex flex-column">
+              <h4>Product</h4>
+              <a href="" class="footer-link">All Products</a>
+            </div>
+            <div class="col-md-3 d-flex flex-column">
+              <h4>About</h4>
+              <a href="" class="footer-link">Sustainability</a>
+              <a href="" class="footer-link">About Us</a>
+              <a href="" class="footer-link">FAQ</a>
+            </div>
+            <div class="col-md-6 d-flex flex-column">
+              <h4>Contact</h4>
+              <a href="" class="footer-link">62 812-1656-1016</a>
+              <a href="" class="footer-link">daru.lab@gmail.com</a>
+              <a href="" class="footer-link">Jl. Medokan Asri Utara XIV No.35. Medokan Ayu, Kec. Rungkut, Kota Surabaya,
+                Jawa Timur 602950</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
