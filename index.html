@@ -23,12 +23,18 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
   <script type="text/javascript">
     $(window).on("scroll", function () {
       if ($(window).scrollTop()) {
-        $("nav").addClass("black","shadow");
+        $("nav").addClass("black", "shadow");
       } else {
-        $("nav").removeClass("black","shadow");
+        $("nav").removeClass("black", "shadow");
       }
     });
     /*menu button onclick function*/
@@ -46,20 +52,8 @@
       <h4>Menu</h4>
     </div>
   </div>
-  <nav class="z-2">
-    <div class="container d-flex">
-      <ul class="flex-col">
-        <li class="me-3"><a href="">Produk</a></li>
-        <li><a href="">Tentang</a></li>
-      </ul>
-      <a class="logo" style="margin: 15px; float: none; text-align: center">
-        <img src="assets/img/logo.png" alt="" height="40px" />
-      </a>
-      <ul></ul>
-      <a style="margin-top: 27px; float: none; text-align: center" class="cart fs-5" href=""><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
-    </div>
-  </nav>
-
+  <!-- bagian nav -->
+  <nav id="navclude" class="z-2"></nav>
   <div
     class="ban-image w-100 vh-100 d-flex justify-content-start align-items-center"
   >
@@ -87,9 +81,9 @@
           data-aos="zoom-in-up"
         />
         <p>Pil pembersih Mesin Cuci</p>
-        <button class="btn btn-outline-daru rounded-pill py-2 px-4">
+        <a class="btn btn-outline-daru shadow rounded-pill py-2 px-4">
           Beli Sekarang
-        </button>
+        </a>
       </div>
       <div class="col-md-2 mb-3">
         <img
@@ -99,9 +93,9 @@
           data-aos="zoom-in-up"
         />
         <p>Pil pembersih Kaca Daru</p>
-        <button class="btn btn-outline-daru rounded-pill py-2 px-4">
+        <a class="btn btn-outline-daru shadow rounded-pill py-2 px-4">
           Beli Sekarang
-        </button>
+        </a>
       </div>
       <div class="col-md-2 mb-3">
         <img
@@ -111,9 +105,9 @@
           data-aos="zoom-in-up"
         />
         <p>Pil pembersih Kloset Duduk</p>
-        <button class="btn btn-outline-daru rounded-pill py-2 px-4">
+        <a class="btn btn-outline-daru shadow rounded-pill py-2 px-4">
           Beli Sekarang
-        </button>
+        </a>
       </div>
       <div class="col-md-2 mb-3">
         <img
@@ -123,9 +117,9 @@
           data-aos="zoom-in-up"
         />
         <p>Pil pembersih Wiper Mobil</p>
-        <button class="btn btn-outline-daru rounded-pill py-2 px-4">
+        <a class="btn btn-outline-daru shadow rounded-pill py-2 px-4">
           Beli Sekarang
-        </button>
+        </a>
       </div>
       <div class="col-md-2"></div>
     </div>
@@ -133,9 +127,7 @@
       <div class="col-md-2"></div>
       <div class="col-md-8">
         <div class="d-grid gap-2">
-          <button class="btn btn-daru rounded-pill" type="button">
-            Lihat Semua
-          </button>
+          <a class="btn btn-daru shadow rounded-pill"> Lihat Semua </a>
         </div>
       </div>
       <div class="col-md-2"></div>
@@ -143,7 +135,7 @@
   </div>
 
   <div
-    class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center mt-5"
+    class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center my-5"
   >
     <div class="content container text-center">
       <h2 class="text-white tulis">Daru Lab</h2>
@@ -153,7 +145,9 @@
         use of single-use materials - because small changes can make a big
         impact.
       </p>
-      <button class="btn btn-outline-light mt-4 fs-4 rounded-pill py-2 px-4">
+      <button
+        class="shadow btn btn-outline-light mt-4 fs-4 rounded-pill py-2 px-4"
+      >
         About Us
       </button>
     </div>
@@ -161,49 +155,41 @@
 
   <div class="container-fluid footer">
     <div class="container text-white">
-      <div class="row mt-3">
+      <div class="row">
         <div class="col-md-6">
           <div class="col-md-6 text-center">
-            <img src="assets/img/map.png" alt="" class="my-3 img-fluid" />
+            <!-- <img src="assets/img/map.png" alt="" class="my-3 img-fluid" /> -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.297888390594!2d112.7915740745021!3d-7.320397330597662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa96c78410c7%3A0xbe4cb24e572c77a1!2sJl.%20Medokan%20Asri%20Utara%20XIV%20No.35%2C%20Medokan%20Ayu%2C%20Kec.%20Rungkut%2C%20Surabaya%2C%20Jawa%20Timur%2060295!5e0!3m2!1sid!2sid!4v1695084264087!5m2!1sid!2sid"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="my-3 img-fluid rounded mx-2"
+            ></iframe>
           </div>
           <div class="col-md-6"></div>
-          <p>
-            <img src="assets/img/logo.png" alt="" height="40px" /> Copyright
-            ©2023 – Daru Lab. – All rights reserved.
+          <p class="fs-14">
+            <img src="assets/img/logo.png" class="me-2" alt="" height="40px" />
+            Copyright ©2023 – Daru Lab. – All rights reserved.
           </p>
         </div>
         <div class="col-md-6 mt-5">
           <div class="row">
-            <!-- <div class="col-md-2">
-              <h4>Product</h4>
+            <div class="col-md-3 d-flex flex-column fs-14">
+              <h4 class="text-secondary fs-5 fw-bold">Product</h4>
               <a href="" class="footer-link">All Products</a>
             </div>
-            <div class="col-md-4 flex-col">
-              <h4>About</h4>
+            <div class="col-md-3 d-flex flex-column fs-14">
+              <h4 class="text-secondary fs-5 fw-bold">About</h4>
               <a href="" class="footer-link">Sustainability</a>
               <a href="" class="footer-link">About Us</a>
               <a href="" class="footer-link">FAQ</a>
             </div>
-            <div class="col-md-6">
-              <h4>Contact</h4>
-              <a href="" class="footer-link">62 812-1656-1016</a>
-              <a href="" class="footer-link">daru.lab@gmail.com</a>
-              <a href="" class="footer-link">Jl. Medokan Asri Utara XIV No.35. Medokan Ayu, Kec. Rungkut, Kota Surabaya,
-                Jawa Timur 602950</a>
-            </div> -->
-
-            <div class="col-md-3 d-flex flex-column">
-              <h4>Product</h4>
-              <a href="" class="footer-link">All Products</a>
-            </div>
-            <div class="col-md-3 d-flex flex-column">
-              <h4>About</h4>
-              <a href="" class="footer-link">Sustainability</a>
-              <a href="" class="footer-link">About Us</a>
-              <a href="" class="footer-link">FAQ</a>
-            </div>
-            <div class="col-md-6 d-flex flex-column">
-              <h4>Contact</h4>
+            <div class="col-md-6 d-flex flex-column fs-14">
+              <h4 class="text-secondary fs-5 fw-bold">Contact</h4>
               <a href="" class="footer-link">62 812-1656-1016</a>
               <a href="" class="footer-link mb-3">daru.lab@gmail.com</a>
               <a href="" class="footer-link"
@@ -219,6 +205,7 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/my.js"></script>
   <script>
     AOS.init();
   </script>
