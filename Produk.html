@@ -1,0 +1,141 @@
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Daru Lab</title>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no" />
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <link rel="stylesheet" href="assets/css/my/home.css" />
+        <link rel="stylesheet" href="assets/css/bootstrap.css" />
+        <link rel="stylesheet" href="assets/font/font.css" />
+        <script type="text/javascript">
+            /*menu button onclick function*/
+            $(document).ready(function () {
+                $(".menu h4").click(function () {
+                    $("nav ul").toggleClass("active");
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="responsive-bar">
+            <div class="menu">
+                <h4>Menu</h4>
+            </div>
+        </div>
+        <nav class="z-1 black sticky-top">
+            <div class="container d-flex">
+                <!-- <ul class="align-middle">
+            <li><a href="#">Produk</a></li>
+            <li><a href="#">Tentang</a></li>
+        </ul> 
+        <div class="logo">
+            <img src="assets/img/logo.png" alt="logo" />
+        </div> -->
+
+                <ul class="flex-col ">
+                    <li class="me-2"><a href="">Produk</a></li>
+                    <li><a href="">Tentang</a></li>
+                </ul>
+                <a class="logo" style="margin: 0; float: none; text-align:center">
+                    <img src="assets/img/logo.png" alt="" height="40px" />
+                </a>
+            </div>
+        </nav>
+
+        <div class="container">
+
+            <div class="row mt-5 text-center">
+                <div class="col-md-12 mb-4 ">
+                    <h2>All Product</h2>
+                    <h5>Everything becomes easier to clean</h5>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col d-flex justify-content-end">
+                    <button class="btn btn btn-secondary rounded-pill">Tambah Produk</button>
+                </div>
+            </div>
+            <div class="row mt-3 mb-5">
+                <div class="col md-6 text-center">
+                    <img width=" 400px" src="assets/img/image product/pil kloset.png" alt="">
+                </div>
+                <div class="col md-3 text-center">
+                    <p>Pil Pembersih Mesin Cuci</p>
+                    <h2 class="text-war">★★★★★</h2>
+                    <img width="100px" src="assets/img/image product/pil mesin cuci.png" alt="">
+                </div>
+
+                <div class="col md-3 text-center">
+                    <p>Pil Pembersih Mesin Cuci</p>
+                    <h2 class="text-war">★★★★★</h2>
+                    <img width=" 100px" src="assets/img/image product/pil mesin cuci.png" alt="">
+                </div>
+            </div>
+
+
+
+            <div class="container-fluid footer">
+                <div class="container text-white">
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="col-md-6 text-center">
+                                <img src="assets/img/map.png" alt="" class="my-3 img-fluid" />
+                            </div>
+                            <div class="col-md-6"></div>
+                            <p>
+                                <img src="assets/img/logo.png" alt="" height="40px" /> Copyright
+                                ©2023 – Daru Lab. – All rights reserved.
+                            </p>
+                        </div>
+                        <div class="col-md-6 mt-5">
+                            <div class="row">
+                                <!-- <div class="col-md-2">
+              <h4>Product</h4>
+              <a href="" class="footer-link">All Products</a>
+            </div>
+            <div class="col-md-4 flex-col">
+              <h4>About</h4>
+              <a href="" class="footer-link">Sustainability</a>
+              <a href="" class="footer-link">About Us</a>
+              <a href="" class="footer-link">FAQ</a>
+            </div>
+            <div class="col-md-6">
+              <h4>Contact</h4>
+              <a href="" class="footer-link">62 812-1656-1016</a>
+              <a href="" class="footer-link">daru.lab@gmail.com</a>
+              <a href="" class="footer-link">Jl. Medokan Asri Utara XIV No.35. Medokan Ayu, Kec. Rungkut, Kota Surabaya,
+                Jawa Timur 602950</a>
+            </div> -->
+
+                                <div class="col-md-3 d-flex flex-column">
+                                    <h4>Product</h4>
+                                    <a href="" class="footer-link">All Products</a>
+                                </div>
+                                <div class="col-md-3 d-flex flex-column">
+                                    <h4>About</h4>
+                                    <a href="" class="footer-link">Sustainability</a>
+                                    <a href="" class="footer-link">About Us</a>
+                                    <a href="" class="footer-link">FAQ</a>
+                                </div>
+                                <div class="col-md-6 d-flex flex-column">
+                                    <h4>Contact</h4>
+                                    <a href="" class="footer-link">62 812-1656-1016</a>
+                                    <a href="" class="footer-link mb-3">daru.lab@gmail.com</a>
+                                    <a href="" class="footer-link">Jl. Medokan Asri Utara XIV No.35. Medokan Ayu, Kec.
+                                        Rungkut,
+                                        Kota Surabaya, Jawa Timur 602950</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script>
+                AOS.init();
+            </script>
+    </body>
