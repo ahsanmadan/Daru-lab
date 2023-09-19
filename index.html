@@ -69,6 +69,8 @@
     </div>
   </div>
 
+  <button type="button" class="btn btn-secondary btn-toast-fixed" id="liveToastBtn"><i class="fa-brands fa-rocketchat"></i></button>
+
   <div class="container mt-5 text-center mb-5 z-0" id="formula">
     <h3 class="mb-5" data-aos="zoom-in-up">Our Products</h3>
     <div class="row mb-3">
@@ -153,6 +155,28 @@
     </div>
   </div>
 
+  
+
+  <!-- Toast -->
+  <div class="toast-container position-fixed bottom-50 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+     
+      <strong class="me-auto">Daru Lab</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body row mb-3">
+      <div class="col-md-8">
+      <button class=" btn btn-primary mb-3 col-md-10">Kontak untuk info lebih lanjut</button>
+      <button class=" btn btn-primary mb-3">@daru.lab</button>
+      <button class=" btn btn-primary">@daru.lab</button>
+      <p class="mt-3">Daru bot</p>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+
   <div class="container-fluid footer">
     <div class="container text-white">
       <div class="row">
@@ -190,7 +214,7 @@
             </div>
             <div class="col-md-6 d-flex flex-column fs-14">
               <h4 class="text-secondary fs-5 fw-bold">Contact</h4>
-              <a href="" class="footer-link">62 812-1656-1016</a>
+              <a href="" class="footer-link">+62 812-1656-1016</a>
               <a href="" class="footer-link mb-3">daru.lab@gmail.com</a>
               <a href="" class="footer-link"
                 >Jl. Medokan Asri Utara XIV No.35. Medokan Ayu, Kec. Rungkut,
@@ -208,5 +232,16 @@
   <script src="assets/js/my.js"></script>
   <script>
     AOS.init();
+  </script>
+  <script>
+    const toastTrigger = document.getElementById('liveToastBtn')
+const toastLiveExample = document.getElementById('liveToast')
+
+if (toastTrigger) {
+  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+  toastTrigger.addEventListener('click', () => {
+    toastBootstrap.show()
+  })
+}
   </script>
 </body>
