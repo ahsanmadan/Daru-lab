@@ -1,0 +1,63 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daru Lab</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1, user-scalable=no"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="assets/css/my/home.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/font/font.css" />
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="text/javascript">
+      $(window).on("scroll", function () {
+        if ($(window).scrollTop()) {
+          $("nav").addClass("black","shadow");
+        } else {
+          $("nav").removeClass("black","shadow");
+        }
+      });
+      /*menu button onclick function*/
+      $(document).ready(function () {
+        $(".menu h4").click(function () {
+          $("nav ul").toggleClass("active");
+        });
+      });
+    </script>
+  </head>
+  
+  <body class="pop">
+    <div class="responsive-bar">
+      <div class="menu">
+        <h4>Menu</h4>
+      </div>
+    </div>
+    <nav class="z-2">
+      <div class="container d-flex">
+        <ul class="flex-col">
+          <li class="me-3"><a href="">Produk</a></li>
+          <li><a href="">Tentang</a></li>
+        </ul>
+        <a class="logo" style="margin: 15px; float: none; text-align: center">
+          <img src="assets/img/logo.png" alt="" height="40px" />
+        </a>
+        <ul></ul>
+        <a style="margin-top: 27px; float: none; text-align: center" class="cart fs-5" href=""><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
+      </div>
+    </nav>
+
+    <button type="button" class="btn btn-secondary btn-toast-fixed" id="liveToastBtn"><i class="fa-brands fa-rocketchat"></i></button>
