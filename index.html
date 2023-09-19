@@ -32,9 +32,9 @@
   <script type="text/javascript">
     $(window).on("scroll", function () {
       if ($(window).scrollTop()) {
-        $("nav").addClass("black", "shadow");
+        $("nav").addClass("black", "shadow-lg");
       } else {
-        $("nav").removeClass("black", "shadow");
+        $("nav").removeClass("black", "shadow-lg");
       }
     });
     /*menu button onclick function*/
@@ -69,7 +69,13 @@
     </div>
   </div>
 
-  <button type="button" class="btn btn-secondary btn-toast-fixed" id="liveToastBtn"><i class="fa-brands fa-rocketchat"></i></button>
+  <a
+    type="button"
+    class="btn btn-success btn-toast-fixed p-3 rounded-circle"
+    id="liveToastBtn"
+  >
+  <i class="fa-solid fa-comment-dots fs-2" style="color: #ffffff;"></i>
+</a>
 
   <div class="container mt-5 text-center mb-5 z-0" id="formula">
     <h3 class="mb-5" data-aos="zoom-in-up">Our Products</h3>
@@ -155,27 +161,36 @@
     </div>
   </div>
 
-  
-
   <!-- Toast -->
-  <div class="toast-container position-fixed bottom-50 end-0 p-3">
-  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-     
-      <strong class="me-auto">Daru Lab</strong>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body row mb-3">
-      <div class="col-md-8">
-      <button class=" btn btn-primary mb-3 col-md-10">Kontak untuk info lebih lanjut</button>
-      <button class=" btn btn-primary mb-3">@daru.lab</button>
-      <button class=" btn btn-primary">@daru.lab</button>
-      <p class="mt-3">Daru bot</p>
-    </div>
-    </div>
+  <div class="toast-container position-fixed end-0 p-3 toast-bt">
+    <div
+      id="liveToast"
+      class="toast"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+    >
+      <div class="toast-header">
+        <strong class="me-auto">Daru Lab</strong>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="toast-body row mb-3">
+        <div class="col-md-8">
+          <button class="btn btn-primary mb-3 col-md-10">
+            Kontak untuk info lebih lanjut
+          </button>
+          <button class="btn btn-primary mb-3">@daru.lab</button>
+          <button class="btn btn-primary">@daru.lab</button>
+          <p class="mt-3">Daru bot</p>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
   <div class="container-fluid footer">
     <div class="container text-white">
@@ -234,14 +249,15 @@
     AOS.init();
   </script>
   <script>
-    const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
+    const toastTrigger = document.getElementById("liveToastBtn");
+    const toastLiveExample = document.getElementById("liveToast");
 
-if (toastTrigger) {
-  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-  toastTrigger.addEventListener('click', () => {
-    toastBootstrap.show()
-  })
-}
+    if (toastTrigger) {
+      const toastBootstrap =
+        bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+      toastTrigger.addEventListener("click", () => {
+        toastBootstrap.show();
+      });
+    }
   </script>
 </body>
