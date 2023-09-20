@@ -1,165 +1,193 @@
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Daru Lab</title>
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no" />
-        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        <link rel="stylesheet" href="assets/css/my/home.css" />
-        <link rel="stylesheet" href="assets/css/bootstrap.css" />
-        <link rel="stylesheet" href="assets/font/font.css" />
-        <script type="text/javascript">
-            /*menu button onclick function*/
-            $(document).ready(function () {
-                $(".menu h4").click(function () {
-                    $("nav ul").toggleClass("active");
-                });
-            });
-        </script>
-    </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daru Lab</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1, user-scalable=no"
+  />
+  <link
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <link rel="stylesheet" href="assets/css/my/produk.css" />
+  <link rel="stylesheet" href="assets/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/font/font.css" />
+  <script src="assets/js/my.js"></script>
+  <script type="text/javascript">
+    /*menu button onclick function*/
+    $(document).ready(function () {
+      $(".menu h4").click(function () {
+        $("nav ul").toggleClass("active");
+      });
+    });
+  </script>
+</head>
 
-    <body>
-        <div class="responsive-bar">
-            <div class="menu">
-                <h4>Menu</h4>
-            </div>
+<body>
+  <!-- bagian nav -->
+  <nav class="z-2 sticky-top shadow">
+    <div class="container d-flex">
+      <ul class="flex-column">
+        <li class="me-3"><a href="">Produk</a></li>
+        <li><a href="">Tentang</a></li>
+      </ul>
+      <a
+        href="/"
+        class="logo"
+        style="margin: 15px; float: none; text-align: center"
+      >
+        <img src="assets/img/logo.png" alt="" height="40px" />
+      </a>
+      <ul></ul>
+      <a
+        style="margin-top: 27px; float: none; text-align: center"
+        class="cart fs-5"
+        href=""
+        ><i class="fa-solid fa-cart-shopping" style="color: #ffffff"></i
+      ></a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row mt-5 text-center">
+      <div class="col-md-12 mb-4">
+        <h2>All Product</h2>
+        <h5>Everything becomes easier to clean</h5>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col d-flex justify-content-end">
+        <button class="btn btn btn-secondary rounded-pill">
+          Tambah Produk
+        </button>
+      </div>
+    </div>
+    <div class="row mt-3 mb-5">
+      <div class="col-md-6 text-center">
+        <img
+          class="rounded-4"
+          width=" 500px"
+          src="assets/img/image product/pil kloset 2.png"
+          alt=""
+        />
+      </div>
+      <div class="col-md-3 text-center mt-3">
+        <p>Pil Pembersih Mesin Cuci</p>
+        <h2 class="text-war">★★★★★</h2>
+        <img
+          width="150px"
+          src="assets/img/image product/PilMESIN CUCI.png"
+          alt=""
+        />
+        <div class="mt-4">
+          <button>Beli Sekarang</button>
         </div>
-        <nav class="z-1 black sticky-top">
-            <div class="container d-flex">
-                <!-- <ul class="align-middle">
-            <li><a href="#">Produk</a></li>
-            <li><a href="#">Tentang</a></li>
-        </ul> 
-        <div class="logo">
-            <img src="assets/img/logo.png" alt="logo" />
-        </div> -->
+      </div>
 
-                <ul class="flex-col ">
-                    <li class="me-2"><a href="">Produk</a></li>
-                    <li><a href="">Tentang</a></li>
-                </ul>
-                <a class="logo" style="margin: 0; float: none; text-align:center">
-                    <img src="assets/img/logo.png" alt="" height="40px" />
-                </a>
-            </div>
-        </nav>
-
-        <div class="container">
-            <div class="row mt-5 text-center">
-                <div class="col-md-12 mb-4 ">
-                    <h2>All Product</h2>
-                    <h5>Everything becomes easier to clean</h5>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col d-flex justify-content-end">
-                    <button class="btn btn btn-secondary rounded-pill">Tambah Produk</button>
-                </div>
-            </div>
-            <div class="row mt-3 mb-5">
-                <div class="col-md-6 text-center">
-                    <img class=" rounded-4" width=" 500px" src="assets/img/image product/pil kloset 2.png" alt="">
-                </div>
-                <div class="col-md-3 text-center mt-3">
-                    <p>Pil Pembersih Mesin Cuci</p>
-                    <h2 class="text-war">★★★★★</h2>
-                    <img width="150px" src="assets/img/image product/PilMESIN CUCI.png" alt="">
-                    <div class="mt-4">
-                        <button>Beli Sekarang</button>
-                    </div>
-                </div>
-
-                <div class="col-md-3 text-center mt-3">
-                    <p>Pil Pembersih Kaca</p>
-                    <h2 class="text-war">★★★★★</h2>
-                    <img width=" 150px" src="assets/img/image product/Pil PEMBERSIH KACA.png" alt="">
-                    <div class="mt-4">
-                        <button>Beli Sekarang</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row  mb-5  ">
-
-                <div class=" col-md-3 text-center mt-3">
-                    <p>Pil Pembersih Kloset duduk</p>
-                    <h2 class="text-war">★★★★★</h2>
-                    <img width="150px" src="assets/img/image product/Pil PEMBERSIH KLOSET.png" alt="">
-                    <div class="mt-4">
-                        <button>Beli Sekarang</button>
-                    </div>
-                </div>
-
-                <div class="col-md-3 text-center  mt-3">
-                    <p>Pil Pembersih Wiper Mobil</p>
-                    <h2 class="text-war">★★★★★</h2>
-                    <img width=" 150px" src="assets/img/image product/Pil PEMBERSIH WIPER M.png" alt="">
-                    <div class="mt-4">
-                        <button>Beli Sekarang</button>
-                    </div>
-                </div>
-                <div class="col-md-6 text-center">
-                    <img width=" 500px" src="assets/img/image product/Pil pembersih mesin cuci2.png" alt="">
-                </div>
-            </div>
+      <div class="col-md-3 text-center mt-3">
+        <p>Pil Pembersih Kaca</p>
+        <h2 class="text-war">★★★★★</h2>
+        <img
+          width=" 150px"
+          src="assets/img/image product/Pil PEMBERSIH KACA.png"
+          alt=""
+        />
+        <div class="mt-4">
+          <button>Beli Sekarang</button>
         </div>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-md-3 text-center mt-3">
+        <p>Pil Pembersih Kloset duduk</p>
+        <h2 class="text-war">★★★★★</h2>
+        <img
+          width="150px"
+          src="assets/img/image product/Pil PEMBERSIH KLOSET.png"
+          alt=""
+        />
+        <div class="mt-4">
+          <button>Beli Sekarang</button>
+        </div>
+      </div>
 
+      <div class="col-md-3 text-center mt-3">
+        <p>Pil Pembersih Wiper Mobil</p>
+        <h2 class="text-war">★★★★★</h2>
+        <img
+          width=" 150px"
+          src="assets/img/image product/Pil PEMBERSIH WIPER M.png"
+          alt=""
+        />
+        <div class="mt-4">
+          <button>Beli Sekarang</button>
+        </div>
+      </div>
+      <div class="col-md-6 text-center">
+        <img
+          width=" 500px"
+          src="assets/img/image product/Pil pembersih mesin cuci2.png"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
 
-
-
-
-        <div class="container-fluid footer">
-            <div class="container text-white">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="col-md-6 text-center">
-                    <!-- <img src="assets/img/map.png" alt="" class="my-3 img-fluid" /> -->
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.297888390594!2d112.7915740745021!3d-7.320397330597662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa96c78410c7%3A0xbe4cb24e572c77a1!2sJl.%20Medokan%20Asri%20Utara%20XIV%20No.35%2C%20Medokan%20Ayu%2C%20Kec.%20Rungkut%2C%20Surabaya%2C%20Jawa%20Timur%2060295!5e0!3m2!1sid!2sid!4v1695084264087!5m2!1sid!2sid"
-                      width="600"
-                      height="450"
-                      style="border: 0"
-                      allowfullscreen=""
-                      loading="lazy"
-                      referrerpolicy="no-referrer-when-downgrade"
-                      class="my-3 img-fluid rounded mx-2"
-                    ></iframe>
-                  </div>
-                  <div class="col-md-6"></div>
-                  <p class="fs-14">
-                    <img src="assets/img/logo.png" class="me-2" alt="" height="40px" />
-                    Copyright ©2023 – Daru Lab. – All rights reserved.
-                  </p>
-                </div>
-                <div class="col-md-6 mt-5">
-                  <div class="row">
-                    <div class="col-md-3 d-flex flex-column fs-14">
-                      <h4 class="text-secondary fs-5 fw-bold">Product</h4>
-                      <a href="" class="footer-link">All Products</a>
-                    </div>
-                    <div class="col-md-3 d-flex flex-column fs-14">
-                      <h4 class="text-secondary fs-5 fw-bold">About</h4>
-                      <a href="" class="footer-link">Sustainability</a>
-                      <a href="" class="footer-link">About Us</a>
-                      <a href="" class="footer-link">FAQ</a>
-                    </div>
-                    <div class="col-md-6 d-flex flex-column fs-14">
-                      <h4 class="text-secondary fs-5 fw-bold">Contact</h4>
-                      <a href="" class="footer-link">+62 812-1656-1016</a>
-                      <a href="" class="footer-link mb-3">daru.lab@gmail.com</a>
-                      <a href="" class="footer-link"
-                        >Jl. Medokan Asri Utara XIV No.35. Medokan Ayu, Kec. Rungkut,
-                        Kota Surabaya, Jawa Timur 602950</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
+  <div class="container-fluid footer">
+    <div class="container text-white">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="col-md-6 text-center">
+            <!-- <img src="assets/img/map.png" alt="" class="my-3 img-fluid" /> -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.297888390594!2d112.7915740745021!3d-7.320397330597662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa96c78410c7%3A0xbe4cb24e572c77a1!2sJl.%20Medokan%20Asri%20Utara%20XIV%20No.35%2C%20Medokan%20Ayu%2C%20Kec.%20Rungkut%2C%20Surabaya%2C%20Jawa%20Timur%2060295!5e0!3m2!1sid!2sid!4v1695084264087!5m2!1sid!2sid"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="my-3 img-fluid rounded mx-2"
+            ></iframe>
+          </div>
+          <div class="col-md-6"></div>
+          <p class="fs-14">
+            <img src="assets/img/logo.png" class="me-2" alt="" height="40px" />
+            Copyright ©2023 – Daru Lab. – All rights reserved.
+          </p>
+        </div>
+        <div class="col-md-6 mt-5">
+          <div class="row">
+            <div class="col-md-3 d-flex flex-column fs-14">
+              <h4 class="text-secondary fs-5 fw-bold">Product</h4>
+              <a href="" class="footer-link">All Products</a>
+            </div>
+            <div class="col-md-3 d-flex flex-column fs-14">
+              <h4 class="text-secondary fs-5 fw-bold">About</h4>
+              <a href="" class="footer-link">Sustainability</a>
+              <a href="" class="footer-link">About Us</a>
+              <a href="" class="footer-link">FAQ</a>
+            </div>
+            <div class="col-md-6 d-flex flex-column fs-14">
+              <h4 class="text-secondary fs-5 fw-bold">Contact</h4>
+              <a href="" class="footer-link">+62 812-1656-1016</a>
+              <a href="" class="footer-link mb-3">daru.lab@gmail.com</a>
+              <a href="" class="footer-link"
+                >Jl. Medokan Asri Utara XIV No.35. Medokan Ayu, Kec. Rungkut,
+                Kota Surabaya, Jawa Timur 602950</a
+              >
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-            AOS.init();
-        </script>
-    </body>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
