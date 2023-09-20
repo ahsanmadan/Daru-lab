@@ -23,6 +23,9 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/my.js"></script>
+  <script src="https://unpkg.com/htmlincludejs"></script>
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -30,13 +33,6 @@
     referrerpolicy="no-referrer"
   ></script>
   <script type="text/javascript">
-    $(window).on("scroll", function () {
-      if ($(window).scrollTop()) {
-        $("nav").addClass("black", "shadow-lg");
-      } else {
-        $("nav").removeClass("black", "shadow-lg");
-      }
-    });
     /*menu button onclick function*/
     $(document).ready(function () {
       $(".menu h4").click(function () {
@@ -48,7 +44,29 @@
 
 <body class="pop">
   <!-- bagian nav -->
-  <nav id="navclude" class="z-2"></nav>
+  <nav class="z-2 fixed-top">
+    <div class="container d-flex">
+      <ul class="flex-column">
+        <li class="me-3"><a href="">Produk</a></li>
+        <li><a href="">Tentang</a></li>
+      </ul>
+      <a
+        href="/"
+        class="logo"
+        style="margin: 15px; float: none; text-align: center"
+      >
+        <img src="assets/img/logo.png" alt="" height="40px" />
+      </a>
+      <ul></ul>
+      <a
+        style="margin-top: 27px; float: none; text-align: center"
+        class="cart fs-5"
+        href=""
+        ><i class="fa-solid fa-cart-shopping" style="color: #ffffff"></i
+      ></a>
+    </div>
+  </nav>
+
   <div
     class="ban-image w-100 vh-100 d-flex justify-content-start align-items-center"
   >
@@ -69,8 +87,8 @@
     class="btn btn-success btn-toast-fixed p-3 rounded-circle"
     id="liveToastBtn"
   >
-  <i class="fa-solid fa-comment-dots fs-2" style="color: #ffffff;"></i>
-</a>
+    <i class="fa-solid fa-comment-dots fs-2" style="color: #ffffff"></i>
+  </a>
 
   <div class="container mt-5 text-center mb-5 z-0" id="formula">
     <h3 class="mb-5" data-aos="zoom-in-up">Our Products</h3>
@@ -130,7 +148,9 @@
       <div class="col-md-2"></div>
       <div class="col-md-8">
         <div class="d-grid gap-2">
-          <a class="btn btn-daru shadow rounded-pill"> Lihat Semua </a>
+          <a href="Produk.html" class="btn btn-daru shadow rounded-pill">
+            Lihat Semua
+          </a>
         </div>
       </div>
       <div class="col-md-2"></div>
@@ -238,8 +258,6 @@
   </div>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/my.js"></script>
   <script>
     AOS.init();
   </script>

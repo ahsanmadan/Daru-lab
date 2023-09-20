@@ -16,14 +16,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/js/my.js"></script>
   <script type="text/javascript">
-    $(window).on("scroll", function () {
-      if ($(window).scrollTop()) {
-        $("nav").addClass("black", "shadow-lg");
-      } else {
-        $("nav").removeClass("black", "shadow-lg");
-      }
-    });
     /*menu button onclick function*/
     $(document).ready(function () {
       $(".menu h4").click(function () {
@@ -34,13 +28,29 @@
 </head>
 
 <body class="pop">
-  <div class="responsive-bar">
-    <div class="menu">
-      <h4>Menu</h4>
-    </div>
-  </div>
   <!-- bagian nav -->
-  <nav id="navclude" class="z-2"></nav>
+  <nav class="z-2 fixed-top">
+    <div class="container d-flex">
+      <ul class="flex-column">
+        <li class="me-3"><a href="">Produk</a></li>
+        <li><a href="">Tentang</a></li>
+      </ul>
+      <a
+        href="/"
+        class="logo"
+        style="margin: 15px; float: none; text-align: center"
+      >
+        <img src="assets/img/logo.png" alt="" height="40px" />
+      </a>
+      <ul></ul>
+      <a
+        style="margin-top: 27px; float: none; text-align: center"
+        class="cart fs-5"
+        href=""
+        ><i class="fa-solid fa-cart-shopping" style="color: #ffffff"></i
+      ></a>
+    </div>
+  </nav>
 
   <div class="container">
     <div class="row mt-5 ">
