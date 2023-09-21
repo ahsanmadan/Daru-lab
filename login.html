@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon" />
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/my/login.css">
+
+    <title>Login Daru Lab</title>
+</head>
+
+<body>
+    <div class="login">
+        <img src="assets/img/pexels-nathan-cowley-713297.jpg" alt="login image" class="login__img">
+
+        <form action="" class="login__form">
+            <h1 class="login__title">Daru Lab</h1>
+            <h4 class="h4">Welcome Back !</h4>
+            <h5 class="h5">Login to your account</h5>
+
+            <div class="login__content">
+                <div class="login__box">
+                    <i class="ri-user-3-line login__icon"></i>
+
+                    <div class="login__box-input">
+                        <input type="text" required class="login__input" placeholder=" ">
+                        <label for="" class="login__label">Username</label>
+                    </div>
+                </div>
+
+                <div class="login__box">
+                    <i class="ri-lock-2-line login__icon"></i>
+
+                    <div class="login__box-input">
+                        <input type="password" required class="login__input" id="login-pass" placeholder=" ">
+                        <label for="" class="login__label">Password</label>
+                        <i class="ri-eye-off-line login__eye" id="login-eye"></i>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="login__button">Login</button>
+
+        </form>
+    </div>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/login.js"></script>
+</body>
+
+</html>
