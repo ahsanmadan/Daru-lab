@@ -15,5 +15,14 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
+@app.route('/faq')
+def faq():
+    return render_template('FAQs.html')
+    
+@app.route('/product')
+def produk():
+    return render_template('Produk.html')
+
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

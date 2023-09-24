@@ -1,17 +1,17 @@
-// $(window).on("scroll", function () {
-//     if ($(window).scrollTop()) {
-//       $("nav").addClass("black", "shadow-lg");
-//     } else {
-//       $("nav").removeClass("black", "shadow-lg");
-//     }
-//   });
-
-var nav = document.querySelector("nav");
-
-window.addEventListener("scroll", function () {
-  if (this.window.pageYOffset > 100) {
-    nav.classList.add("black", "shadow");
+$(window).on("scroll", function () {
+  if ($(window).scrollTop()) {
+    $("nav").addClass("black", "shadow");
   } else {
-    nav.classList.remove("black", "shadow");
+    $("nav").removeClass("black", "shadow");
   }
 });
+
+let count = 0;
+function toast() {
+  count += 1;
+  if (count % 2 === 1) {
+    $("#toastv").show;
+  } else {
+    $("#toastv").hide;
+  }
+}
