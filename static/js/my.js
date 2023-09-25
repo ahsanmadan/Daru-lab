@@ -6,12 +6,13 @@ $(window).on("scroll", function () {
   }
 });
 
-let count = 0;
-function toast() {
-  count += 1;
-  if (count % 2 === 1) {
-    $("#toastv").show;
-  } else {
-    $("#toastv").hide;
-  }
-}
+const toastTrigger = document.getElementById("liveToastBtn");
+    const toastLiveExample = document.getElementById("liveToast");
+
+    if (toastTrigger) {
+      const toastBootstrap =
+        bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+      toastTrigger.addEventListener("click", () => {
+        toastBootstrap.show();
+      });
+    }
