@@ -1,0 +1,28 @@
+from flask import (
+    Flask, render_template, jsonify, request, session, redirect, url_for
+)
+from pymongo import MongoClient
+import jwt
+from datetime import datetime
+
+client = MongoClient(
+    "mongodb+srv://test:asan@cluster0.hmhssac.mongodb.net/?retryWrites=true&w=majority")
+db = client.daru
+app = Flask(__name__)
+
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/faq')
+def faq():
+    return render_template('FAQs.html')
+    
+@app.route('/product')
+def produk():
+    return render_template('Produk.html')
+
+
+if __name__ == '__main__':
+    app.run('0.0.0.0', port=5000, debug=True)
