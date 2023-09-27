@@ -14,7 +14,7 @@
   <!-- css  -->
   <link
     rel="stylesheet"
-    href="{{ url_for('static', filename='css/home.css') }}"
+    href="{{ url_for('static', filename='css/pagemain.css') }}"
   />
   <link
     rel="stylesheet"
@@ -41,7 +41,7 @@
 
 <body class="pop">
   <!-- bagian nav -->
-  <nav class="z-2 fixed-top">
+  <nav class="z-2 sticky-top">
     <div class="container d-flex">
       <ul class="flex-column">
         <li class="me-3"><a href="">Produk</a></li>
@@ -67,7 +67,7 @@
   <!-- akhir nav -->
 
   <!-- bagian penjelasan -->
-  <div class="container">
+  <div class="container my-4">
     <div class="row mt-5 ">
       <div class="col-md-6  mb-4 ">
         <h2 class=" mt-5 col-md-10 dampak">
@@ -217,7 +217,7 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   ></script>
-  <script src="{{ url_for('static', filename='js/my.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/pagemain.js') }}"></script>
   <script type="text/javascript">
     /*menu button onclick function*/
     $(document).ready(function () {
