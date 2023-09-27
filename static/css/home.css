@@ -207,7 +207,7 @@ section.content {
   border: none;
   z-index: 5;
   outline: none;
-  background-color: #212E73;
+  background-color: #212e73;
   color: black;
   cursor: pointer;
   padding: 15px;
@@ -217,5 +217,10 @@ section.content {
   bottom: 270px;
 }
 
+nav .container > ul > li > a:hover {
+  color: rgb(189, 188, 188);
+}
 
-
+.manav a:focus {
+  color: rgb(189, 188, 188);;
+}
