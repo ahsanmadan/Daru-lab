@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no" />
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}" />
   <link rel="stylesheet" href="{{ url_for('static', filename='css/pagemain.css') }}" />
   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
   <link rel="stylesheet" href="{{ url_for('static', filename='font/font.css') }}" />
@@ -59,30 +60,59 @@
         <img src="../static/img/logo.png" alt="" height="40px" />
       </a>
       <ul></ul>
-      <a style="margin-top: 27px; float: none; text-align: center" class="cart fs-5" href=""><i
-          class="fa-solid fa-cart-shopping" style="color: #ffffff"></i></a>
+      <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+
+
+      <div class="cart">
+        <h2 class="cart-title">Your Cart</h2>
+
+        <div class="cart-content">
+          <div class="cart-box">
+            <img src="../static/img/image product/PilMESIN CUCI.png" alt="" class="cart-img">
+            <div class="detail-box">
+              <div class="cart-product-title">Pil Mesin Cuci</div>
+              <div class="cart-price">Rp 67789</div>
+              <input type="number" value="1" class="cart-quantity">
+            </div>
+            <i class="fa-solid fa-trash cart-remove "></i>
+          </div>
+        </div>
+        <div class="total">
+          <div class="total-title">Total</div>
+          <div class="total-price">Rp 0</div>
+        </div>
+        <div class="d-flex justify-content-center">
+
+          <button type="button" class="btn btn-danger text-centert">buy now</button>
+        </div>
+        <i class="fa-solid fa-x" id="close-cart"></i>
+      </div>
+
+
     </div>
   </nav>
+
   <div class="container">
 
-    <div class="row mt-5 ">
+    <div class="row mt-5 product-box">
       <div class="col-md-7 mb-4 ">
-        <img class="img-fluid rounded-5" width=" 600px" src="../static/img/image product/Pilmesin cuci.jpg" alt="">
+        <img class="product-img rounded-5" width=" 600px" src="../static/img/image product/Pilmesin cuci.jpg" alt="">
       </div>
       <div class="col-md-5     mb-4 px-5">
-        <h1>Pil Pembersih <br> Mesin Cuci</h1>
+        <h1 class="product-title">Pil Pembersih <br> Mesin Cuci</h1>
         <h5 class="mt-4">Made With Daru Lab</h5>
         <h2 class="text-war mt-4 mb-3">★★★★★</h2>
+        <span class="price">67.789,00</span>
         <hr>
         <p class="mb-5 mt-5">Menghilangkan kerak dan residu bekas detergen. Serta membasmi kuman di dalam
           tabung
           mesin cuci.
           Cobalah! Anda akan terpukau pada kotoran yang sebelumnya tidak terlihat menjadi terlihat.</p>
 
-        <button class=" btn btn-secondary rounded-pill me-3">
-          <h5>+ Keranjang</h5>
+        <button class="btn btn-secondary rounded-pill me-3 ">
+          <h5 clas>+ Keranjang</h5>
         </button>
-        <button class="btn btn-outline-dark rounded-pill">
+        <button class="btn btn-outline-dark rounded-pill add-cart">
           <h5>Beli Langsung</h5>
         </button>
 
@@ -293,4 +323,5 @@
       });
     }
   </script>
+  <script src="/static/js/cart.js"></script>
 </body>
