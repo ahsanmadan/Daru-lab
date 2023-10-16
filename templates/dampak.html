@@ -1,90 +1,37 @@
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daru Lab</title>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <meta
-    name="viewport"
-    content="width=device-width,initial-scale=1, user-scalable=no"
-  />
-  <link
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    rel="stylesheet"
-  />
-  <!-- css  -->
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='css/pagemain.css') }}"
-  />
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
-  />
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='font/font.css') }}"
-  />
-  <link
-    rel="shortcut icon"
-    href="{{ url_for('static', filename='img/logo.png') }}"
-    type="image/x-icon"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-<!-- akhir css  -->
+  <title>Dampak | Daru Lab</title>
+  {% include "temp/Main-css.html" %}
 </head>
 
 <body class="pop">
   <!-- bagian nav -->
-  <nav role="navigation" class="z-2 sticky-top">
-    
-  </nav>
+  <nav class="z-2 sticky-top black">{%include "temp/Temp-nav.html"%}</nav>
 
   <!-- bagian penjelasan -->
   <div class="container my-4">
-    <div class="row mt-5 ">
-      <div class="col-md-6  mb-4 ">
-        <h2 class=" mt-5 col-md-10 dampak">
-          Dampak dari Perusahaan
-        </h2>
+    <div class="row mt-5">
+      <div class="col-md-6 mb-4">
+        <h2 class="mt-5 col-md-10 dampak">Dampak dari Perusahaan</h2>
         <div class="flex-col">
-          <p>Transparansi dan keberlanjutan merupakan inti dari
-            semua yang kami lakukan di Daru Lab. Kami percaya
-            bahwa setiap orang berhak mengetahui apa yang ada
-            di dalam produk yang mereka gunakan setiap hari dan
-            bagaimana produk tersebut memengaruhi planet ini.
-            Kami membagikan laporan ini kepada Anda untuk
-            menunjukkan bagaimana kami memberikan dampak
-            positif sebagai perusahaan, dan mengapa hal ini
-            penting bagi Anda.</p>
+          <p>
+            Transparansi dan keberlanjutan merupakan inti dari semua yang kami
+            lakukan di Daru Lab. Kami percaya bahwa setiap orang berhak
+            mengetahui apa yang ada di dalam produk yang mereka gunakan setiap
+            hari dan bagaimana produk tersebut memengaruhi planet ini. Kami
+            membagikan laporan ini kepada Anda untuk menunjukkan bagaimana kami
+            memberikan dampak positif sebagai perusahaan, dan mengapa hal ini
+            penting bagi Anda.
+          </p>
         </div>
-
       </div>
       <div class="col-md-6 mb-5 px-5">
         <div class="row mt-5">
-          <img width=" 600px" src="../static/img/bg login.jpg " alt="">
+          <img width=" 600px" src="../static/img/bg login.jpg " alt="" />
         </div>
-
       </div>
     </div>
-
   </div>
-
-
-
-  </div>
- 
-  
-
-  </div>
-  </div>
-   <!-- akhir penjelasan -->
-
+  <!-- akhir penjelasan -->
 
   <!-- button contact -->
   <button
@@ -95,7 +42,6 @@
     <i class="fa-solid fa-comment-dots fs-2" style="color: #ffffff"></i>
   </button>
   <!-- akhir button contact -->
-
 
   <!-- bagian kontak -->
   <div id="toastv" class="toast-container position-fixed end-0 p-3 toast-bt">
@@ -120,7 +66,9 @@
           <button class="btn btn-primary mb-3 col-md-10">
             Kontak untuk info lebih lanjut
           </button>
-          <button class="btn btn-primary mb-3"><i class="bi bi-instagram"></i>@daru.lab</button>
+          <button class="btn btn-primary mb-3">
+            <i class="bi bi-instagram"></i>@daru.lab
+          </button>
           <button class="btn btn-primary">+62 812-1656-1016</button>
           <p class="mt-3">Daru bot</p>
         </div>
@@ -128,49 +76,10 @@
     </div>
   </div>
 
-
-<!-- footer -->
-<footer role="navigation" class="z-2">
-    
-</footer>
-
+  <!-- footer -->
   <!-- javascript -->
 
-  <!-- AOS  -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-  <!-- script bootstrap js -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"
-  ></script>
-  <!-- toast -->
-
-  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.js"></script> 
-  <script src="https://unpkg.com/htmlincludejs"></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  ></script>
-  <script src="{{ url_for('static', filename='js/pagemain.js') }}"></script>
-  <script type="text/javascript">
-    /*menu button onclick function*/
-    $(document).ready(function () {
-      $(".menu h4").click(function () {
-        $("nav ul").toggleClass("active");
-      });
-    });
-    let barnav = document.querySelector('nav[role="navigation"]');
-    barnav.innerHTML = nav;
-    let barfoot = document.querySelector('footer[role="navigation"]');
-    barfoot.innerHTML = foot;
-  </script>
+  <footer class="z-2">{% include "temp/Temp-footer.html"%}</footer>
+  {%include "temp/Main-js.html"%}
   <!-- akhir javascript -->
 </body>

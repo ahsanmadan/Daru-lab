@@ -1,0 +1,27 @@
+<!-- javascript -->
+
+  <!-- AOS  -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <!-- script bootstrap js -->
+  <script src="https://unpkg.com/htmlincludejs"></script>
+  <script src="{{ url_for('static', filename='js/daru/home.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/daru/cart.js') }}"></script>
+  <script type="text/javascript">
+    /*menu button onclick function*/
+    $(document).ready(function () {
+      $(".menu h4").click(function () {
+        $("nav ul").toggleClass("active");
+      });
+    });
+    $(window).scroll(function() {
+    if ($(window).scrollTop() > 10) {
+        $('#navBar').addClass('floatingNav');
+    } else {
+        $('#navBar').removeClass('floatingNav');
+    }
+});
+  </script>
+  <!-- akhir javascript -->
