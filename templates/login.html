@@ -1,58 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../static/img/logo.png" type="image/x-icon" />
-
-    <!--=============== REMIXICONS ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-
-
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="../static/css/my/login.css">
-
-    <title>Login Daru Lab</title>
-</head>
-
-<body>
-    <div class="login">
-        <img src="../static/img/pexels-nathan-cowley-713297.jpg" alt="login image" class="login__img">
-
-        <form action="" class="login__form">
-            <h1 class="login__title">Daru Lab</h1>
-            <h4 class="h4">Welcome Back !</h4>
-            <h5 class="h5">Login to your account</h5>
-
-            <div class="login__content">
-                <div class="login__box">
-                    <i class="ri-user-3-line login__icon"></i>
-
-                    <div class="login__box-input">
-                        <input type="text" required class="login__input" placeholder=" ">
-                        <label for="" class="login__label">Username</label>
+  <head>
+    <title>Login</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='img/logo.png') }}"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap/bootstrap.css') }}"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="	https://cdnjs.cloudflare.com/ajax/libs/js-cookie/1.5.1/js.cookie.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/daru/login.css') }}"
+    />
+    <script src="{{ url_for('static', filename='js/daru/daru.js') }}"></script>
+  </head>
+  <body>
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+    <div class="section">
+      <div class="container">
+        <div class="row h-100 justify-content-center">
+          <div class="col-12 text-center align-self-center py-5">
+            <div class="section pb-5 pt-5 pt-sm-2 text-center">
+              <h6 class="mb-0 pb-3">
+                <span>Log In </span><span>Sign Up</span>
+              </h6>
+              <input
+                autocomplete="off"
+                class="checkbox"
+                type="checkbox"
+                id="reg-log"
+                name="reg-log"
+              />
+              <label for="reg-log"></label>
+              <div class="card-3d-wrap mx-auto">
+                <div class="card-3d-wrapper">
+                  <div class="card-front">
+                    <div class="center-wrap">
+                      <div class="section text-center">
+                        <h4 class="mb-4 pb-3">Log In</h4>
+                        <div class="form-group">
+                          <input
+                            type="text"
+                            class="form-style"
+                            placeholder="Username"
+                            required
+                            id="log-username"
+                            autocomplete="off"
+                          />
+                          <i class="input-icon uil uil-user"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input
+                            type="password"
+                            class="form-style"
+                            placeholder="Password"
+                            required
+                            id="log-pw"
+                          />
+                          <i class="input-icon uil uil-lock-alt"></i>
+                        </div>
+                        <button onclick="sign_in()" class="btn mt-4">
+                          Login
+                        </button>
+                      </div>
                     </div>
-                </div>
+                  </div>
 
-                <div class="login__box">
-                    <i class="ri-lock-2-line login__icon"></i>
-
-                    <div class="login__box-input">
-                        <input type="password" required class="login__input" id="login-pass" placeholder=" ">
-                        <label for="" class="login__label">Password</label>
-                        <i class="ri-eye-off-line login__eye" id="login-eye"></i>
+                  <div class="card-back">
+                    <div class="center-wrap">
+                      <div class="section text-center">
+                        <h4 class="mb-3 pb-3">Sign Up</h4>
+                        <div class="form-group">
+                          <input
+                            autocomplete="off"
+                            type="text"
+                            class="form-style"
+                            placeholder="Username"
+                            id="username-input"
+                            required
+                          />
+                          <i class="input-icon uil uil-user"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input
+                            type="text"
+                            class="form-style"
+                            placeholder="Nama Lengkap"
+                            id="nama-input"
+                            required
+                          />
+                          <i class="input-icon uil uil-user"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input
+                            type="password"
+                            class="form-style"
+                            placeholder="Password"
+                            id="pass-input"
+                            required
+                          />
+                          <i class="input-icon uil uil-lock-alt"></i>
+                        </div>
+                        <button onclick="sign_up()" class="btn mt-4">
+                          Register
+                        </button>
+                      </div>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
-
-            <button type="submit" class="login__button">Login</button>
-
-        </form>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <!--=============== MAIN JS ===============-->
-    <script src="../static/js/login.js"></script>
-</body>
-
+  </body>
 </html>
