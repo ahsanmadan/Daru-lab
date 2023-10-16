@@ -1,178 +1,346 @@
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daru Lab</title>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <meta
-    name="viewport"
-    content="width=device-width,initial-scale=1, user-scalable=no"
-  />
-  <link
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    rel="stylesheet"
-  />
-  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='css/pagemain.css') }}"
-  />
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
-  />
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='font/font.css') }}"
-  />
-  <link
-    rel="shortcut icon"
-    href="{{ url_for('static', filename='img/logo.png') }}"
-    type="image/x-icon"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-  <script src="../static/js/bootstrap.min.js"></script>
-  <script src="{{ url_for('static', filename='js/pagemain.js') }}"></script>
-  <script src="https://unpkg.com/htmlincludejs"></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  ></script>
-  <script type="text/javascript">
-    /*menu button onclick function*/
-    $(document).ready(function () {
-      $(".menu h4").click(function () {
-        $("nav ul").toggleClass("active");
-      });
-    });
-  </script>
+  <title>All Product | Daru Lab</title>
+  {% include "temp/Main-css.html" %}
 </head>
+<style>
+  .button-overlay {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
 
+  .image-container:hover .button-overlay {
+    opacity: 1;
+  }
+
+  .button-overlay button {
+    transition: background-color 0.3s;
+  }
+
+  /* Munculkan tombol saat dihover */
+</style>
 <body>
   <!-- bagian nav -->
-  <nav class="z-2 sticky-top">
-    <div class="container d-flex">
-      <ul class="flex-column">
-        <li class="me-3"><a href="">Produk</a></li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Tentang
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="dampak .html">Dampak</a></li>
-            <li>
-              <a class="dropdown-item" href="About.us.html">Tentang Kami</a>
-            </li>
-            <li><a class="dropdown-item" href="FAQs.html">FAQ</a></li>
-          </ul>
-        </li>
-      </ul>
-      <a
-        href="/"
-        class="logo"
-        style="margin: 15px; float: none; text-align: center"
-      >
-        <img src="../static/img/logo.png" alt="" height="40px" />
-      </a>
-      <ul></ul>
-      <a
-        style="margin-top: 27px; float: none; text-align: center"
-        class="cart fs-5"
-        href=""
-        ><i class="fa-solid fa-cart-shopping" style="color: #ffffff"></i
-      ></a>
-    </div>
-  </nav>
+
+  <nav class="z-2 sticky-top black">{%include "temp/Temp-nav.html"%}</nav>
+  <!-- akhir nav -->
 
   <div class="container">
-    <div class="row mt-5 text-center">
-      <div class="col-md-12 mb-4">
-        <h2>All Product</h2>
-        <h5>Everything becomes easier to clean</h5>
+    <div class="card-1">
+      <div class="row mt-5 text-center">
+        <div class="col-md-12 mb-5">
+          <h2>Featured product</h2>
+          <h5>Everything becomes easier to clean</h5>
+        </div>
+      </div>
+      <!-- <div class="my-5"> -->
+      <!-- <div class="row mt-3 mb-5">
+          <div class="col-md-6 text-center">
+            <img
+              class="rounded"
+              width=" 500px"
+              src="../static/img/image product/pil kloset 2.png"
+              alt=""
+            />
+          </div>
+          <div class="col-md-3 text-center">
+            <h6>Pil Pembersih Mesin Cuci</h6>
+            <h2 class="text-war">★★★★★</h2>
+            <img
+              width="150px"
+              src="../static/img/image product/PilMESIN CUCI.png"
+              alt=""
+              class="shadow"
+            />
+            <div class="mt-4">
+              <a
+                href="/produk1"
+                class="btn btn-outline-daru rounded-pill shadow"
+                >Beli Sekarang</a
+              >
+            </div>
+          </div>
+
+          <div class="col-md-3 text-center">
+            <h6>Pil Pembersih Kaca</h6>
+            <h2 class="text-war">★★★★★</h2>
+            <img
+              width=" 150px"
+              src="../static/img/image product/Pil PEMBERSIH KACA.png"
+              alt=""
+              class="shadow"
+            />
+            <div class="mt-4">
+              <a
+                href="/produk2"
+                class="btn btn-outline-daru rounded-pill shadow"
+                >Beli Sekarang</a
+              >
+            </div>
+          </div> -->
+      <!-- </div> -->
+      <!-- <div class="row mb-5">
+          <div class="col-md-3 text-center">
+            <h6>Pil Pembersih Kloset duduk</h6>
+            <h2 class="text-war">★★★★★</h2>
+            <img
+              width="150px"
+              src="../static/img/image product/Pil PEMBERSIH KLOSET.png"
+              alt=""
+              class="shadow"
+            />
+            <div class="mt-4">
+              <a
+                href="/produk3"
+                class="btn btn-outline-daru rounded-pill shadow"
+                >Beli Sekarang</a
+              >
+            </div>
+          </div>
+
+          <div class="col-md-3 text-center">
+            <h6>Pil Pembersih Wiper Mobil</h6>
+            <h2 class="text-war">★★★★★</h2>
+            <img
+              width=" 150px"
+              src="../static/img/image product/Pil PEMBERSIH WIPER M.png"
+              alt=""
+              class="shadow"
+            />
+            <div class="mt-4">
+              <a
+                href="/produk4"
+                class="btn btn-outline-daru rounded-pill shadow"
+                >Beli Sekarang</a
+              >
+            </div> -->
+      <!-- </div>
+          <div class="col-md-6 text-center">
+            <img
+              width=" 500px"
+              src="../static/img/image product/Pil pembersih mesin cuci2.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div> -->
+      <div class="row row-cols-1 g-4">
+        <div class="col-md-6">
+          <div data-aos="zoom-in-up" class="card h-100 border border-0">
+            <img
+              src="../static/img/image product/atas.jpg"
+              class="card-img-top"
+              alt="..."
+              style="width: 100%; height: 370px"
+            />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div data-aos="zoom-in-up" class="card h-100 border border-0">
+            <div class="position-relative d-inline-block image-container">
+              <img
+                src="../static/img/image product/test1.png"
+                class="card-img-top h-100"
+                alt="..."
+                style="height: 257px"
+              />
+              <div class="button-overlay d-grid gap-2 w-100 container">
+                <a class="rounded-pill btn btn-dark" href="/produk1"
+                  >Learn More</a
+                >
+                <button class="rounded-pill btn btn-outline-light fw-medium">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+
+            <div class="card-body p-0 py-2">
+              <div class="row">
+                <span style="font-size: 18px" class="fw-semibold col-6"
+                  >Pil Pembersih Wiper Mobil</span
+                >
+                <span style="font-size: 14px" class="text-end fw-medium col-6"
+                  >Rp. 50.148</span
+                >
+              </div>
+
+              <p style="font-size: 14px" class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Perferendis, earum.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div data-aos="zoom-in-up" class="col-md-3">
+          <div class="card h-100 border border-0">
+            <div class="position-relative d-inline-block image-container">
+              <img
+                src="../static/img/image product/test2.png"
+                class="card-img-top h-100"
+                alt="..."
+                style="height: 257px"
+              />
+              <div class="button-overlay d-grid gap-2 w-100 container">
+                <button class="rounded-pill btn btn-dark">Learn More</button>
+                <button class="rounded-pill btn btn-outline-light fw-medium">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="card-body p-0 py-2">
+              <div class="row">
+                <span style="font-size: 18px" class="fw-semibold col-6"
+                  >Pil Pembersih Kloset Duduk</span
+                >
+                <span style="font-size: 14px" class="text-end fw-medium col-6"
+                  >Rp. 58.062</span
+                >
+              </div>
+
+              <p style="font-size: 14px" class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Perferendis, earum.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div data-aos="zoom-in-up" class="col-md-3">
+          <div class="card h-100 border border-0">
+            <div class="position-relative d-inline-block image-container">
+              <img
+                src="../static/img/image product/test3.png"
+                class="card-img-top h-100"
+                alt="..."
+                style="height: 257px"
+              />
+              <div class="button-overlay d-grid gap-2 w-100 container">
+                <button class="rounded-pill btn btn-dark">Learn More</button>
+                <button class="rounded-pill btn btn-outline-light fw-medium">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="card-body p-0 py-2">
+              <div class="row">
+                <span style="font-size: 18px" class="fw-semibold col-6"
+                  >Pil Pembersih Mesin Cuci</span
+                >
+                <span style="font-size: 14px" class="text-end fw-medium col-6"
+                  >Rp. 67.789</span
+                >
+              </div>
+
+              <p style="font-size: 14px" class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Perferendis, earum.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div data-aos="zoom-in-up" class="card h-100 border border-0">
+            <div class="position-relative d-inline-block image-container">
+              <img
+                src="../static/img/image product/test4.png"
+                class="card-img-top h-100"
+                alt="..."
+                style="height: 257px"
+              />
+              <div class="button-overlay d-grid gap-2 w-100 container">
+                <button class="rounded-pill btn btn-dark">Learn More</button>
+                <button class="rounded-pill btn btn-outline-light fw-medium">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="card-body p-0 py-2">
+              <div class="row">
+                <span style="font-size: 18px" class="fw-semibold col-6"
+                  >Pil Pembersih Kaca</span
+                >
+                <span style="font-size: 14px" class="text-end fw-medium col-6"
+                  >Rp. 42.626</span
+                >
+              </div>
+
+              <p style="font-size: 14px" class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Perferendis, earum.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div
+            data-aos="zoom-in-up"
+            class="card h-100 border border-0 rounded-0"
+          >
+            <img
+              src="../static/img/image product/bawah.jpg"
+              class="card-img-top"
+              alt="..."
+              style="width: 100%; height: 370px"
+            />
+            <div class="button-overlay d-grid gap-2 w-100 container">
+              <button class="rounded-pill btn btn-dark">Learn More</button>
+              <button class="rounded-pill btn btn-outline-dark fw-medium">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="my-5">
-      <div class="row mt-3 mb-5">
-        <div class="col-md-6 text-center">
-          <img
-            class="rounded-4"
-            width=" 500px"
-            src="../static/img/image product/pil kloset 2.png"
-            alt=""
-          />
-        </div>
-        <div class="col-md-3 text-center mt-3">
-          <p>Pil Pembersih Mesin Cuci</p>
-          <h2 class="text-war">★★★★★</h2>
-          <img
-            width="150px"
-            src="../static/img/image product/PilMESIN CUCI.png"
-            alt=""
-          />
-          <div class="mt-4">
-            <button>Beli Sekarang</button>
-          </div>
-        </div>
 
-        <div class="col-md-3 text-center mt-3">
-          <p>Pil Pembersih Kaca</p>
-          <h2 class="text-war">★★★★★</h2>
-          <img
-            width=" 150px"
-            src="../static/img/image product/Pil PEMBERSIH KACA.png"
-            alt=""
-          />
-          <div class="mt-4">
-            <button>Beli Sekarang</button>
-          </div>
-        </div>
+    <div class="row mt-5 text-center">
+      <div class="col-md-12 mb-4">
+        <h2 data-aos="zoom-in-up">More Product</h2>
       </div>
-      <div class="row mb-5">
-        <div class="col-md-3 text-center mt-3">
-          <p>Pil Pembersih Kloset duduk</p>
-          <h2 class="text-war">★★★★★</h2>
-          <img
-            width="150px"
-            src="../static/img/image product/Pil PEMBERSIH KLOSET.png"
-            alt=""
-          />
-          <div class="mt-4">
-            <button>Beli Sekarang</button>
-          </div>
-        </div>
+    </div>
+    <div class="card-2 mb-5">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- isi product -->
+        {% for def in data %} {% set name = def.pname %} {% set img = def.ppic
+        %} {% set id = def._id %} {% set folder = def.folder %} {% set price =
+        def.price %} {% set desc = def.desc %}
+        <div class="col">
+          <div data-aos="zoom-in-up" class="card h-100 border border-0">
+            <div class="position-relative d-inline-block image-container">
+              <img
+                src="../static/{{img}}"
+                class="card-img-top rounded-0"
+                alt="..."
+                style="height: 350px"
+              />
+              <div class="button-overlay d-grid gap-2 w-100 container">
+                <a href="/produk/{{folder}}" class="rounded-pill btn btn-dark">Learn More</a>
+                <button
+                  class="rounded-pill btn btn-outline-light text-dark fw-medium"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
 
-        <div class="col-md-3 text-center mt-3">
-          <p>Pil Pembersih Wiper Mobil</p>
-          <h2 class="text-war">★★★★★</h2>
-          <img
-            width=" 150px"
-            src="../static/img/image product/Pil PEMBERSIH WIPER M.png"
-            alt=""
-          />
-          <div class="mt-4">
-            <button>Beli Sekarang</button>
+            <div class="card-body p-0 py-2">
+              <div class="row">
+                <span style="font-size: 18px" class="fw-semibold col-6"
+                  >{{name}}</span
+                >
+                <span style="font-size: 14px" class="text-end fw-medium col-6"
+                  >Rp. {{price}}</span
+                >
+              </div>
+
+              <p style="font-size: 14px" class="card-text">{{desc}}</p>
+            </div>
           </div>
         </div>
-        <div class="col-md-6 text-center">
-          <img
-            width=" 500px"
-            src="../static/img/image product/Pil pembersih mesin cuci2.png"
-            alt=""
-          />
-        </div>
+        <!-- isi product -->
+        {%endfor%}
       </div>
     </div>
   </div>
@@ -215,80 +383,7 @@
     </div>
   </div>
 
-  <div class="container-fluid footer">
-    <div class="container text-white">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="col-md-6 text-center">
-            <!-- <img src="../static/img/map.png" alt="" class="my-3 img-fluid" /> -->
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.297888390594!2d112.7915740745021!3d-7.320397330597662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa96c78410c7%3A0xbe4cb24e572c77a1!2sJl.%20Medokan%20Asri%20Utara%20XIV%20No.35%2C%20Medokan%20Ayu%2C%20Kec.%20Rungkut%2C%20Surabaya%2C%20Jawa%20Timur%2060295!5e0!3m2!1sid!2sid!4v1695084264087!5m2!1sid!2sid"
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              class="my-3 img-fluid rounded mx-2"
-            ></iframe>
-          </div>
-          <div class="col-md-6"></div>
-          <p class="fs-14">
-            <img
-              src="../static/img/logo.png"
-              class="me-2"
-              alt=""
-              height="40px"
-            />
-            Copyright ©2023 – Daru Lab. – All rights reserved.
-          </p>
-        </div>
-        <div class="col-md-6 mt-5">
-          <div class="row">
-            <div class="col-md-3 d-flex flex-column fs-14">
-              <h4 class="text-secondary fs-5 fw-bold">Product</h4>
-              <a href="" class="footer-link">All Products</a>
-            </div>
-            <div class="col-md-3 d-flex flex-column fs-14">
-              <h4 class="text-secondary fs-5 fw-bold">About</h4>
-              <a href="" class="footer-link">Sustainability</a>
-              <a href="" class="footer-link">About Us</a>
-              <a href="" class="footer-link">FAQ</a>
-            </div>
-            <div class="col-md-6 d-flex flex-column fs-14">
-              <h4 class="text-secondary fs-5 fw-bold">Contact</h4>
-              <a href="" class="footer-link">+62 812-1656-1016</a>
-              <a href="" class="footer-link mb-3">daru.lab@gmail.com</a>
-              <a href="" class="footer-link"
-                >Jl. Medokan Asri Utara XIV No.35. Medokan Ayu, Kec. Rungkut,
-                Kota Surabaya, Jawa Timur 602950</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"
-  ></script>
-  <script>
-    AOS.init();
-  </script>
-  <script>
-    const toastTrigger = document.getElementById("liveToastBtn");
-    const toastLiveExample = document.getElementById("liveToast");
-
-    if (toastTrigger) {
-      const toastBootstrap =
-        bootstrap.Toast.getOrCreateInstance(toastLiveExample);
-      toastTrigger.addEventListener("click", () => {
-        toastBootstrap.show();
-      });
-    }
-  </script>
+  <!-- footer -->
+  <footer class="z-2">{% include "temp/Temp-footer.html"%}</footer>
+  {%include "temp/Main-js.html"%}
 </body>
