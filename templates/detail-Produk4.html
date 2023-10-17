@@ -1,42 +1,8 @@
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daru Lab</title>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <meta
-    name="viewport"
-    content="width=device-width,initial-scale=1, user-scalable=no"
-  />
-  <link
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    rel="stylesheet"
-  />
-  <!-- css  -->
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='css/pagemain.css') }}"
-  />
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
-  />
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='font/font.css') }}"
-  />
-  <link
-    rel="shortcut icon"
-    href="{{ url_for('static', filename='img/logo.png') }}"
-    type="image/x-icon"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <title>Detail | Daru Lab</title>
+  {% include "temp/Main-css.html" %}
 </head>
+<!-- akhir css  -->
 
 <style>
   div.ex1 {
@@ -45,34 +11,23 @@
     overflow: auto;
   }
 </style>
-<!-- akhir css  -->
 
 <body>
-  <div class="responsive-bar">
-    <div class="menu">
-      <h4>Menu</h4>
-    </div>
-  </div>
   <!-- bagian nav -->
-  <nav role="navigation" class="z-2 sticky-top"></nav>
+  <nav class="z-2 sticky-top black">{%include "temp/Temp-nav.html"%}</nav>
   <!-- akhir nav -->
 
-  <div class="container">
-    <div class="row mt-5">
+  <div class="">
+    <div class="row">
       <div class="col-md-7 mb-4">
-        <img
-          class="img-fluid rounded-5"
-          width=" 600px"
-          src="../static/img/image product/Pil Wiper Mobil.png"
-          alt=""
-        />
+        <img class="img-fluid" width="100%" height="" src="../static/img/image product/Minimal (3).png" alt="" />
       </div>
-      <div class="col-md-5 mb-4 px-5">
+      <div class="col-md-5 mb-4 px-5 mt-5">
         <h1>
           Pil Pembersih <br />
           Wiper Mobil
         </h1>
-        <h5 class="mt-4">Made With Daru Lab</h5>
+        <span class="mt-4"><span class="text-secondary fw-medium">Made by </span><b>Daru Lab</b></span>
         <h2 class="text-war mt-4 mb-3">★★★★★</h2>
         <hr />
         <p class="mb-5 mt-5">
@@ -82,243 +37,140 @@
           mobil kesayangan!
         </p>
 
-        <button class="btn btn-secondary rounded-pill me-3">
-          <h5>+ Keranjang</h5>
-        </button>
-        <button class="btn btn-outline-dark rounded-pill">
-          <h5>Beli Langsung</h5>
+        <button class="btn btn-dark w-100 rounded-pill">
+          <span class="fw-medium">Add to Cart</span>
         </button>
       </div>
     </div>
-    <div class="row mt-5">
-      <div class="col-md-6 mb-4">
-        <h3 class="mb-3">Cara Pemakaian</h3>
 
-        <ol>
-          <li><b>Buka</b> kap mobil lalu kaitkan secara benar</li>
-          <li><b>Cari</b> lokasi tabung reservoir</li>
-          <li>
-            <b>Buka</b> dan <b>penuhi</b> tabung reservoir dengan air bersih
-          </li>
-          <li><b>Masukkan</b> 1 buah pil ke dalam tabung reservoir</li>
-          <li><b>Tutup</b> tabung reservoir dan kap mobil</li>
-          <li><b>Setelah itu, </b> Anda dapat menggunakan wiper</li>
-        </ol>
+    <div class="container-md">
+      <div class="row">
+        <div class="col-md-6 mb-4 mt-5">
+          <h3 data-aos="zoom-in-up" class="mb-3">Cara Pemakaian</h3>
+
+          <!-- <ol>
+            <li><b>Pastikan</b> mesin cuci dalam keadaan kosong</li>
+            <li>
+              Khusus mesin cuci top loading, <b>isi </b> tabung mesin cuci
+              dengan air dahulu
+            </li>
+            <li>
+              <b>Ambil</b> 1 atau 2 buah pil (Kapasitas tabung >7 kg = 2 pil)
+            </li>
+            <li>
+              <b>Letakkan</b> pil ke dalam tabung mesin cuci (Jangan masukkan ke
+              dispenser)
+            </li>
+            <li><b>Jalankan</b> mode pencucian dengan waktu tercepat</li>
+            <li>
+              <b>Tunggu</b> siklus mesin cuci berhenti dan mesin cuci dapat
+              digunakan seperti biasa (Bersihkan mesin cuci setiap 2 bulan)
+            </li>
+          </ol> -->
+          <ol class="list-group list-group-flush" data-aos="zoom-in-up">
+            <li class="list-group-item">
+              <b>Buka</b> kap mobil lalu kaitkan secara benar
+            </li>
+            <li class="list-group-item">
+              <b>Cari</b> lokasi tabung reservoir
+            </li>
+            <li class="list-group-item">
+              <b>Buka</b> dan <b>penuhi</b> tabung reservoir dengan air bersih
+            </li>
+            <li class="list-group-item">
+              <b>Masukkan</b> 1 buah pil ke dalam tabung reservoir
+            </li>
+            <li class="list-group-item">
+              <b>Tutup</b> tabung reservoir dan kap mobil
+            </li>
+            <li class="list-group-item">
+              <b>Setelah itu, </b> Anda dapat menggunakan wiper
+            </li>
+          </ol>
+        </div>
+        <div class="col-6 d-flex justify-content-end mb-4 mx-auto">
+          <img class="img-fluid rounded myimg-md-none" width="440px" src="../static/img/image product/mesin_cuci2.jpg"
+            alt="" data-aos="zoom-in-up" />
+        </div>
       </div>
-      <div class="col-md-6 d-flex justify-content-end mb-4">
-        <img
-          class="img-fluid rounded-5"
-          width="300px"
-          src="../static/img/image product/Wiper mobil.jpg"
-          alt=""
-        />
+    </div>
+    <!-- bagian komentar -->
+    <div class="container-md" style="margin-bottom: 100px">
+      <div class="row my-5 md-comment">
+        <div class="col-9"></div>
+        <button data-aos="zoom-in-up" class="col-3 btn btn-outline-dark fw-bold">
+          Write a Review
+        </button>
+      </div>
+      <span data-aos="zoom-in-up" style="box-sizing: border-box"
+        class="fs-5 fw-bold bg-dark text-light text-center align-item-center p-3 rounded">4.9
+        <span class="text-war mb-3 fw-bold fs-5 text-light"> ★★★★★</span></span>
+      <!-- isi komen -->
+      <div class="row my-5 comment-list" data-aos="zoom-in-up">
+        <div class="col-md-3 my-auto">
+          <p class="fw-bold fs-4">Janis w.p</p>
+          <hr />
+          <span class="text-secondary">5 Years ago</span>
+        </div>
+        <div class="col-md-9">
+          <p class="text-war mb-3 fw-bold fs-5">★★★★★</p>
+          <p class="fw-light fs-4">Simple , clean and easy to use.</p>
+          <span class="fs-16px">I love that it travels well on trips. It’s a refreshing peppermint
+            flavor tha does not burn. Just chew it up and brush! No messy
+            toothpaste tube to deal with. Highly recommend !</span>
+        </div>
+      </div>
+      <div class="row my-5 comment-list" data-aos="zoom-in-up">
+        <div class="col-md-3 my-auto">
+          <p class="fw-bold fs-4">Janis w.p</p>
+          <hr />
+          <span class="text-secondary">5 Years ago</span>
+        </div>
+        <div class="col-md-9">
+          <p class="text-war mb-3 fw-bold fs-5">★★★★★</p>
+          <p class="fw-light fs-4">Simple , clean and easy to use.</p>
+          <span class="fs-16px">I love that it travels well on trips. It’s a refreshing peppermint
+            flavor tha does not burn. Just chew it up and brush! No messy
+            toothpaste tube to deal with. Highly recommend !</span>
+        </div>
+      </div>
+      <!-- akhir isi komen -->
+      <div class="com-foot text-center">
+        <hr class="mt-5" />
+        <button class="btn-more">Show More <i class="fa-solid fa-caret-down" style="color: grey;"></i></button>
       </div>
     </div>
   </div>
 
-  <div class="row mt-5 px-5">
-    <div class="col">
-      <h4>Ulasan Pengguna</h4>
-    </div>
-    <div class="col d-flex justify-content-end">
-      <button class="btn btn-secondary rounded-pill me-3">
-        <h5>Tambah Ulasan</h5>
-      </button>
-    </div>
-  </div>
-  <div class="container-fluid ex1 my-3 px-5">
-    <div class="row">
-      <div class="col-2">
-        <b>ujang</b><br />
-        15 agustus 2023
-      </div>
-      <div class="col-10">
-        <span class="mb-4">⭐⭐⭐⭐⭐</span>
-        <h3 class="mb-4">produk ini sangat bagus</h3>
-
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis
-          sapien in quam suscipit posuere quis ac nunc. Sed massa tellus,
-          malesuada ac eleifend sit amet, volutpat sed sem. Quisque ut urna sed
-          urna dapibus dapibus auctor in lacus. Aenean eleifend elit at eros
-          condimentum, finibus molestie erat placerat. Cras ullamcorper
-          pellentesque felis et faucibus. Sed lobortis ornare vehicula. Morbi
-          tristique, ipsum nec vehicula ultricies, ipsum lorem feugiat lorem, at
-          sodales magna mi id neque. Quisque mattis sapien tincidunt, rutrum
-          orci sed, consectetur ipsum. Phasellus molestie sed libero eu
-          tincidunt. Integer pretium a turpis in tempus. Sed dictum, enim a.
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-2">
-        <b>aqsya</b><br />
-        17 agustus 2023
-      </div>
-      <div class="col-10">
-        <span class="mb-4">⭐⭐⭐⭐⭐</span>
-        <h3 class="mb-4">produk ini sangat bagus</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis
-          sapien in quam suscipit posuere quis ac nunc. Sed massa tellus,
-          malesuada ac eleifend sit amet, volutpat sed sem. Quisque ut urna sed
-          urna dapibus dapibus auctor in lacus. Aenean eleifend elit at eros
-          condimentum, finibus molestie erat placerat. Cras ullamcorper
-          pellentesque felis et faucibus. Sed lobortis ornare vehicula. Morbi
-          tristique, ipsum nec vehicula ultricies, ipsum lorem feugiat lorem, at
-          sodales magna mi id neque. Quisque mattis sapien tincidunt, rutrum
-          orci sed, consectetur ipsum. Phasellus molestie sed libero eu
-          tincidunt. Integer pretium a turpis in tempus. Sed dictum, enim a.
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-2">
-        <b>aurora</b><br />
-        17 agustus 2023
-      </div>
-      <div class="col-10">
-        <span class="mb-4">⭐⭐⭐⭐⭐</span>
-        <h3 class="mb-4">produk ini sangat bagus</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis
-          sapien in quam suscipit posuere quis ac nunc. Sed massa tellus,
-          malesuada ac eleifend sit amet, volutpat sed sem. Quisque ut urna sed
-          urna dapibus dapibus auctor in lacus. Aenean eleifend elit at eros
-          condimentum, finibus molestie erat placerat. Cras ullamcorper
-          pellentesque felis et faucibus. Sed lobortis ornare vehicula. Morbi
-          tristique, ipsum nec vehicula ultricies, ipsum lorem feugiat lorem, at
-          sodales magna mi id neque. Quisque mattis sapien tincidunt, rutrum
-          orci sed, consectetur ipsum. Phasellus molestie sed libero eu
-          tincidunt. Integer pretium a turpis in tempus. Sed dictum, enim a.
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-2">
-        <b>udin</b><br />
-        17 agustus 2023
-      </div>
-      <div class="col-10">
-        <span class="mb-4">⭐⭐⭐⭐⭐</span>
-        <h3 class="mb-4">produk ini sangat bagus</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis
-          sapien in quam suscipit posuere quis ac nunc. Sed massa tellus,
-          malesuada ac eleifend sit amet, volutpat sed sem. Quisque ut urna sed
-          urna dapibus dapibus auctor in lacus. Aenean eleifend elit at eros
-          condimentum, finibus molestie erat placerat. Cras ullamcorper
-          pellentesque felis et faucibus. Sed lobortis ornare vehicula. Morbi
-          tristique, ipsum nec vehicula ultricies, ipsum lorem feugiat lorem, at
-          sodales magna mi id neque. Quisque mattis sapien tincidunt, rutrum
-          orci sed, consectetur ipsum. Phasellus molestie sed libero eu
-          tincidunt. Integer pretium a turpis in tempus. Sed dictum, enim a.
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-2">
-        <b>keno</b><br />
-        17 agustus 2023
-      </div>
-      <div class="col-10">
-        <span class="mb-4">⭐⭐⭐⭐⭐</span>
-        <h3 class="mb-4">produk ini sangat bagus</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis
-          sapien in quam suscipit posuere quis ac nunc. Sed massa tellus,
-          malesuada ac eleifend sit amet, volutpat sed sem. Quisque ut urna sed
-          urna dapibus dapibus auctor in lacus. Aenean eleifend elit at eros
-          condimentum, finibus molestie erat placerat. Cras ullamcorper
-          pellentesque felis et faucibus. Sed lobortis ornare vehicula. Morbi
-          tristique, ipsum nec vehicula ultricies, ipsum lorem feugiat lorem, at
-          sodales magna mi id neque. Quisque mattis sapien tincidunt, rutrum
-          orci sed, consectetur ipsum. Phasellus molestie sed libero eu
-          tincidunt. Integer pretium a turpis in tempus. Sed dictum, enim a.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <a
-    type="button"
-    class="btn btn-success btn-toast-fixed p-3 rounded-circle"
-    id="liveToastBtn"
-  >
+  <!-- button contact -->
+  <button type="button" class="btn btn-success btn-toast-fixed p-3 rounded-circle" id="liveToastBtn">
     <i class="fa-solid fa-comment-dots fs-2" style="color: #ffffff"></i>
-  </a>
+  </button>
+  <!-- akhir button contact -->
 
-  <div class="toast-container position-fixed end-0 p-3 toast-bt">
-    <div
-      id="liveToast"
-      class="toast"
-      role="alert"
-      aria-live="assertive"
-      aria-atomic="true"
-    >
+  <!-- bagian kontak -->
+  <div id="toastv" class="toast-container position-fixed end-0 p-3 toast-bt">
+    <div id="liveToast" class="toast shadow" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
         <strong class="me-auto">Daru Lab</strong>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="toast"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body row mb-3">
         <div class="col-md-8">
           <button class="btn btn-primary mb-3 col-md-10">
             Kontak untuk info lebih lanjut
           </button>
-          <button class="btn btn-primary mb-3">@daru.lab</button>
-          <button class="btn btn-primary">@daru.lab</button>
+          <button class="btn btn-primary mb-3">
+            <i class="bi bi-instagram"></i>@daru.lab
+          </button>
+          <button class="btn btn-primary">+62 812-1656-1016</button>
           <p class="mt-3">Daru bot</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- footer -->
-  <footer role="navigation" class="z-2"></footer>
-
-  <!-- javascript -->
-
-        <!-- javascript -->
-
-  <!-- AOS  -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-  <!-- script bootstrap js -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"
-  ></script>
-  <!-- toast -->
-
-  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-  <script src="https://unpkg.com/htmlincludejs"></script>
-  <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  ></script>
-  <script src="{{ url_for('static', filename='js/pagemain.js') }}"></script>
-  <script type="text/javascript">
-    /*menu button onclick function*/
-    $(document).ready(function () {
-      $(".menu h4").click(function () {
-        $("nav ul").toggleClass("active");
-      });
-    });
-    let barnav = document.querySelector('nav[role="navigation"]');
-    barnav.innerHTML = nav;
-    let barfoot = document.querySelector('footer[role="navigation"]');
-    barfoot.innerHTML = foot;
-  </script>
+  <footer class="z-2">{% include "temp/Temp-footer.html"%}</footer>
+  {%include "temp/Main-js.html"%}
   <!-- akhir javascript -->
 </body>
