@@ -304,7 +304,7 @@
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <!-- isi product -->
         {% for def in data %} {% set name = def.pname %} {% set img = def.ppic
-        %} {% set id = def._id %} {% set folder = def.folder %} {% set price =
+        %} {% set id = def.idProduk %} {% set folder = def.folder %} {% set price =
         def.price %} {% set desc = def.desc %}
         <div class="col">
           <div data-aos="zoom-in-up" class="card h-100 border border-0">
@@ -316,7 +316,7 @@
                 style="height: 350px"
               />
               <div class="button-overlay d-grid gap-2 w-100 container">
-                <a href="/produk/{{folder}}" class="rounded-pill btn btn-dark">Learn More</a>
+                <a href="/produk/{{folder}}?id={{id}}" class="rounded-pill btn btn-dark">Learn More</a>
                 <button
                   class="rounded-pill btn btn-outline-light text-dark fw-medium"
                 >

@@ -12,9 +12,10 @@ from os.path import join, dirname
 import shutil
 import uuid
 import random
+import secrets
 
 app = Flask(__name__)
-
+app.secret_key = secrets.token_hex(16)
 SECRET_KEY = "DARU"
 
 uri = "mongodb+srv://test:clean@cluster0.hmhssac.mongodb.net/?retryWrites=true&w=majority"
@@ -70,8 +71,20 @@ def produk4():
     return render_template('detail-Produk4.html')
 
 
-@app.route('/login', methods=['GET'])
+# def verify_password(password):
+#     # Gantilah dengan logika verifikasi password yang sesuai
+#     return password == 'daru'
+
+
+@app.route('/login', methods=['POST', 'GET'])
 def login():
+    # # Menggunakan POST untuk ambil password
+    # password = request.form.get('password')
+
+    # if not verify_password(password):
+    #     # Menampilkan pesan kesalahan dengan alert JavaScript
+    #     return render_template('index.html', msg=None, error_message="Password salah! Anda tidak diizinkan mengakses halaman ini")
+
     token_receive = request.cookies.get(TOKEN_KEY)
     try:
         payload = jwt.decode(
@@ -79,11 +92,15 @@ def login():
             SECRET_KEY,
             algorithms=['HS256']
         )
+
+        if 'username' not in session:
+            return redirect(url_for('login', msg='Please login first'))
+
         user_info = db.users.find_one({'username': payload.get('id')})
         return redirect(url_for('dashboard', user_info=user_info))
     except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):
         msg = request.args.get('msg')
-        return render_template('login.html', msg=msg)
+        return render_template('login.html', msg=msg, error_message=None)
 
 
 @app.route("/sign_in", methods=["POST"])
@@ -103,6 +120,7 @@ def sign_in():
             'id': username_receive,
             "exp": datetime.utcnow() + timedelta(seconds=60 * 60 * 24),
         }
+        session['username'] = username_receive
         token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
         return jsonify({'result': 'success', 'token': token})
     else:
@@ -130,6 +148,7 @@ def sign_up():
             'id': username_receive,
             "exp": datetime.utcnow() + timedelta(seconds=60 * 60 * 24),
         }
+        session['username'] = username_receive
         token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
         return jsonify({'result': 'success', 'token': token})
     else:
@@ -210,8 +229,10 @@ def deleteUser():
 
 @app.route("/logout")
 def logout():
+    session.pop('username', None)
     session.pop('name', None)
-    return redirect("/login")
+    return redirect("/")
+
 
 # @app.route('/getUsers', methods=['GET'])
 # def getUsers():
@@ -353,41 +374,42 @@ def prosesEdit(id):
             algorithms=['HS256']
         )
 
-        pname_receive = request.form.get('pname_give')
-        price_receive = request.form.get('price_give')
+        pname_receive = request.form.get('pname-give')
+        price_receive = request.form.get('price-give')
         format_price = format_rupiah(price_receive)
-        desc = request.form.get('desc_give')
-        print(pname_receive,format_price,desc)
-        # if "ppic_give" in request.files:
-        #     new_image = request.files['ppic_give']
+        desc = request.form.get('desc-give')
 
-        #     old_post = db.produk.find_one({'idProduk': id})
-        #     old_image_path = old_post.get('ppic')
+        if "ppic_give" in request.files:
+            new_image = request.files['ppic-give']
 
-        #     if new_image:
-        #         # mengambil varialbel folder di database
-        #         folder = db.produk.find_one({'idProduk': id}, {"folder": 1})
-        #         # Lakukan penyimpanan file gambar yang baru
-        #         extension = new_image.filename.split('.')[-1]  # Ambil ekstensi dengan benar
-        #         filename = f'static/img/detail_product/{folder}/{pname_receive}.{extension}'
-        #         new_image.save(filename)
+            old_post = db.produk.find_one({'idProduk': id})
+            old_image_path = old_post.get('ppic')
 
-        #         new_image_path = f'img/detail_product/{folder}/{pname_receive}.{extension}'
-        #         db.produk.update_one({'idProduk': id}, 
-        #                              {'$set': {'pname': pname_receive, 'desc': desc, 'price': format_price, 'ppic': new_image_path}})
+            if new_image:
+                # mengambil varialbel folder di database
+                folder = db.produk.find_one({'idProduk': id}, {"folder": 1})
+                # Lakukan penyimpanan file gambar yang baru
+                extension = new_image.filename.split(
+                    '.')[-1]  # Ambil ekstensi dengan benar
+                filename = f'static/img/detail_product/{folder}/{pname_receive}.{extension}'
+                new_image.save(filename)
 
-        #         # Hapus gambar yang lama
-        #         if old_image_path:
-        #             old_image_file = os.path.join('static', old_image_path)
-        #             if os.path.exists(old_image_file):
-        #                 os.remove(old_image_file)
+                new_image_path = f'img/detail_product/{folder}/{pname_receive}.{extension}'
+                db.produk.update_one({'idProduk': id},
+                                     {'$set': {'pname': pname_receive, 'desc': desc, 'price': format_price, 'ppic': new_image_path}})
 
-        # else:
-        #     # Jika tidak ada file yang diunggah, tetap perbarui title dan layout
-        #     db.produk.update_one(
-        #         {'idProduk': id}, {'$set': {'pname': pname_receive, 'desc': desc, 'price': price_receive}})
+                # Hapus gambar yang lama
+                if old_image_path:
+                    old_image_file = os.path.join('static', old_image_path)
+                    if os.path.exists(old_image_file):
+                        os.remove(old_image_file)
 
-        # return jsonify({'result': 'success', 'msg': 'Data produk telah diperbarui'})
+        else:
+            # Jika tidak ada file yang diunggah, tetap perbarui title dan layout
+            db.produk.update_one(
+                {'idProduk': id}, {'$set': {'pname': pname_receive, 'desc': desc, 'price': format_price}})
+
+        return jsonify({'result': 'success', 'msg': 'Data produk telah diperbarui'})
 
     except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):
         return redirect(url_for('home'))
@@ -403,8 +425,21 @@ def produkdetail(folder):
 
         detail = list(db.product_detail.find(
             {'folder': list_folder}, {'_id': False}))
+    # Periksa apakah 'username' ada dalam sesi
+    username = session.get('username')
 
-    return render_template('detailproduk.html', post=post, detail=detail)
+    return render_template('detailproduk.html', post=post, detail=detail, username=username)
+
+
+@app.route('/tambahDetailProduk', methods=['POST'])
+def tambahdetail():
+    data = request.get_json()
+    daftar_cara_pemakaian = data['daftarCaraPemakaian'].split('\n')
+
+    doc = {
+        "penggunaan" : daftar_cara_pemakaian,
+    }
+    return jsonify({'result': 'success', 'msg': 'Detil produk berhasil di tambahkan'})
 
 
 if __name__ == '__main__':

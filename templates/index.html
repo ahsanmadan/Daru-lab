@@ -4,6 +4,12 @@
 </head>
 
 <body class="pop">
+  {% if error_message %}
+  <script>
+    // Menampilkan pesan kesalahan dengan alert JavaScript
+    alert("{{ error_message }}");
+  </script>
+  {% endif %}
   <!-- bagian nav -->
   <nav class="z-2 fixed-top">{%include "temp/Temp-nav.html" %}</nav>
   <!-- akhir nav -->
