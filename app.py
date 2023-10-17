@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for, session
 from pymongo import MongoClient
 import jwt
+import json
 import datetime
 import hashlib
 from werkzeug.utils import secure_filename
@@ -121,8 +122,9 @@ def sign_in():
             "exp": datetime.utcnow() + timedelta(seconds=60 * 60 * 24),
         }
         session['username'] = username_receive
+        username = session.get('username')
         token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
-        return jsonify({'result': 'success', 'token': token})
+        return jsonify({'result': 'success', 'token': token, "username": username})
     else:
         return jsonify({
             "result": "fail",
@@ -418,28 +420,76 @@ def prosesEdit(id):
 @app.route('/produk/<folder>', methods=['GET'])
 def produkdetail(folder):
     post = db.produk.find_one({'folder': folder}, {'_id': False})
-    id = post.get('idProduk')
 
-    if id:
-        list_folder = post.get('folder')
+    if post:
+        post_id = post.get('idProduk')
+        id_folder = post.get('folder')
 
-        detail = list(db.product_detail.find(
-            {'folder': list_folder}, {'_id': False}))
-    # Periksa apakah 'username' ada dalam sesi
-    username = session.get('username')
+        # Mengambil detail produk terkait
+        detail = list(db.detail_produk.find(
+            {'folder': id_folder}, {'_id': False}))
 
-    return render_template('detailproduk.html', post=post, detail=detail, username=username)
+        return render_template('detailProduk.html', post=post, detail=detail,username=session.get('username'))
+
+    # Handle jika tidak ada post dengan folder yang diberikan
+    return render_template('error.html', message='Produk tidak ditemukan')
 
 
 @app.route('/tambahDetailProduk', methods=['POST'])
 def tambahdetail():
-    data = request.get_json()
-    daftar_cara_pemakaian = data['daftarCaraPemakaian'].split('\n')
+    token_receive = request.cookies.get(TOKEN_KEY)
+    try:
+        payload = jwt.decode(
+            token_receive,
+            SECRET_KEY,
+            algorithms=['HS256']
+        )
+        # Mengambil data dari form
+        id = int(request.form.get('id_give'))
+        produk_db = db.produk.find_one({'idProduk': id}, {'_id': False})
+        judul_receive = request.form.get('judul_give')
+        desc_receive = request.form.get('desc_give')
+        pic1 = request.files['pic1_give']
+        pic2 = request.files['pic2_give']
+        pemakaian = json.loads(request.form.get('jsonData'))
+        print(pemakaian)
+        loc_folder = produk_db.get('folder')
 
-    doc = {
-        "penggunaan" : daftar_cara_pemakaian,
-    }
-    return jsonify({'result': 'success', 'msg': 'Detil produk berhasil di tambahkan'})
+        # Membuat direktori untuk menyimpan gambar
+        directory = f'static/img/detail_product/{loc_folder}'
+        os.makedirs(directory, exist_ok=True)
+
+        # Menyimpan gambar 1
+        extension1 = pic1.filename.split('.')[-1]
+        if extension1 not in ['jpg', 'jpeg', 'png', 'gif']:
+            return jsonify({'msg': 'Hanya gambar yang diizinkan', 'result': 'error'})
+        filename1 = f'{directory}/{judul_receive}_pic1.{extension1}'
+        pic1.save(filename1)
+        dbpic1 = f'img/detail_product/{loc_folder}/{judul_receive}_pic1.{extension1}'
+
+        # Menyimpan gambar 2
+        extension2 = pic2.filename.split('.')[-1]
+        if extension2 not in ['jpg', 'jpeg', 'png', 'gif']:
+            return jsonify({'msg': 'Hanya gambar yang diizinkan', 'result': 'error'})
+        filename2 = f'{directory}/{judul_receive}_pic2.{extension2}'
+        pic2.save(filename2)
+        dbpic2 = f'img/detail_product/{loc_folder}/{judul_receive}_pic2.{extension2}'
+
+        # Menyimpan data dalam basis data
+        doc = {
+            "idProduk": id,
+            'title': judul_receive,
+            'desc': desc_receive,
+            'pic1': dbpic1,
+            'pic2': dbpic2,
+            'penggunaan': pemakaian,
+            'folder': produk_db.get('folder'),
+        }
+        db.detail_produk.insert_one(doc)
+
+        return jsonify({'msg': 'Data telah ditambahkan', 'result': 'success'})
+    except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):
+        return redirect(url_for('home'))
 
 
 if __name__ == '__main__':

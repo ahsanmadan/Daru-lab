@@ -27,13 +27,17 @@
     class="logo"
     style="margin: 15px; float: none; text-align: center"
   >
-    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="" height="40px" />
+    <img
+      src="{{ url_for('static', filename='img/logo.png') }}"
+      alt=""
+      height="40px"
+    />
   </a>
-  <ul></ul>
   <a
     style="margin-top: 27px; float: none; text-align: center"
-    class="cart fs-5"
-    href=""
-    ><i class="fa-solid fa-cart-shopping" style="color: #ffffff"></i
-  ></a>
+    class="fs-5"
+    id="cart-icon"
+  >
+    <i class="fa-solid fa-cart-shopping" style="color: #ffffff"></i>
+  </a>
 </div>

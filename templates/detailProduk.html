@@ -11,6 +11,13 @@
     overflow: auto;
   }
 </style>
+<script>
+  let id = "{{ post.id }}";
+  let folder = "{{ post.folder }}";
+  $(document).ready(function () {
+    produk_detail(folder);
+  });
+</script>
 <body>
   <!-- bagian nav -->
   <nav class="z-2 sticky-top black">{%include "temp/Temp-nav.html"%}</nav>
@@ -18,14 +25,25 @@
   <div class="">
     <div class="row">
       <div class="col-md-7 mb-4">
+        {% if detail %} {% for item in detail %} {% if item.pic1 %}
         <img
           class="img-fluid bg-secondary"
           width="100%"
           height=""
-          src="../static/img/image product/"
-          alt="img none"
+          src="../static/{{ item.pic1 }}"
+          alt="Image"
         />
+        {% else %}
+        <img
+          class="img-fluid bg-secondary"
+          width="100%"
+          height=""
+          src="../static/img/none.png"
+          alt="No Image"
+        />
+        {% endif %} {% endfor %} {% endif %}
       </div>
+
       <div class="col-md-5 mb-4 px-5 mt-3">
         {% if username %}
         <div class="row mb-3">
@@ -43,8 +61,8 @@
         </div>
         {% endif %}
         <h1>
-          Pil Pembersih <br />
-          Mesin Cuci
+          {% if detail %} {% for item in detail %} {% if item.title %}
+          {{item.title}} {% else %} None {% endif %} {% endfor %} {% endif %}
         </h1>
         <span class="mt-4"
           ><span class="text-secondary fw-medium">Made by </span
@@ -53,9 +71,8 @@
         <h2 class="text-war mt-4 mb-3">★★★★★</h2>
         <hr />
         <p class="mb-5 mt-5">
-          Menghilangkan kerak dan residu bekas detergen. Serta membasmi kuman di
-          dalam tabung mesin cuci. Cobalah! Anda akan terpukau pada kotoran yang
-          sebelumnya tidak terlihat menjadi terlihat.
+          {% if detail %} {% for item in detail %} {% if item.desc %}
+          {{item.desc}} {% else %} None {% endif %} {% endfor %} {% endif %}
         </p>
 
         <button class="btn btn-dark w-100 rounded-pill">
@@ -63,44 +80,42 @@
         </button>
       </div>
     </div>
-
     <div class="container-md">
       <div class="row">
         <div class="col-md-6 mb-4 mt-5">
           <h3 data-aos="zoom-in-up" class="mb-3">Cara Pemakaian</h3>
           <ol class="list-group list-group-flush" data-aos="zoom-in-up">
-            <!-- perulangan untuk list cara penggunaan -->
-            <li class="list-group-item">
-              <b>Pastikan</b> mesin cuci dalam keadaan kosong
-            </li>
-            <li class="list-group-item">
-              Khusus mesin cuci top loading, <b>isi </b> tabung mesin cuci
-              dengan air dahulu
-            </li>
-            <li class="list-group-item">
-              <b>Ambil</b> 1 atau 2 buah pil (Kapasitas tabung >7 kg = 2 pil)
-            </li>
-            <li class="list-group-item">
-              <b>Letakkan</b> pil ke dalam tabung mesin cuci (Jangan masukkan ke
-              dispenser)
-            </li>
-            <li class="list-group-item">
-              <b>Jalankan</b> mode pencucian dengan waktu tercepat
-            </li>
-            <li class="list-group-item">
-              <b>Tunggu</b> siklus mesin cuci berhenti dan mesin cuci dapat
-              digunakan seperti biasa (Bersihkan mesin cuci setiap 2 bulan)
-            </li>
+            {% if detail %}
+            {% for item in detail %}
+            {% if item.penggunaan %}
+            {% for cara in item.penggunaan.daftarCaraPemakaian%}
+            <li class="list-group-item">{{ cara }}</li>
+            {%endfor%} 
+            {% else %} 
+            None 
+            {% endif %} 
+            {% endfor %} 
+            {% endif %}
           </ol>
         </div>
         <div class="col-6 d-flex justify-content-end mb-4 mx-auto">
+          {% if detail %} {% for item in detail %} {% if item.pic2 %}
           <img
             class="img-fluid rounded myimg-md-none bg-secondary"
             width="440px"
-            src="../static/img/image product/"
+            src="../static/{{item.pic2}}"
             alt="Gambar tidak ada"
             data-aos="zoom-in-up"
           />
+          {% else %}
+          <img
+            class="img-fluid rounded myimg-md-none bg-secondary"
+            width="440px"
+            src="../static/img/none.png"
+            alt="Gambar tidak ada"
+            data-aos="zoom-in-up"
+          />
+          {% endif %} {% endfor %} {% endif %}
         </div>
       </div>
     </div>
@@ -217,11 +232,11 @@
         </div>
         <div class="modal-body">
           <div class="mb-3">
-            <label for="formFile" class="form-label"
-              >Untuk gambar atas</label
-            >
+            <label for="formFile" class="form-label">Untuk gambar atas</label>
             <input class="form-control" type="file" id="detail-pic1-input" />
-            <div class="form-text" id="basic-addon4">*Pastikan tiap sisi gambar sama atau berbentuk persegi</div>
+            <div class="form-text" id="basic-addon4">
+              *Pastikan tiap sisi gambar sama atau berbentuk persegi
+            </div>
           </div>
           <div class="form-floating mb-3">
             <input
@@ -260,7 +275,9 @@
               >Untuk gambar cara penggunaan produk</label
             >
             <input class="form-control" type="file" id="detail-pic2-input" />
-            <div class="form-text" id="basic-addon4">*Pastikan tiap sisi gambar sama atau berbentuk persegi</div>
+            <div class="form-text" id="basic-addon4">
+              *Pastikan tiap sisi gambar sama atau berbentuk persegi
+            </div>
           </div>
         </div>
         <div class="modal-footer">
@@ -271,7 +288,13 @@
           >
             Close
           </button>
-          <button onclick="tambahDetailProduk()" type="button" class="btn btn-primary">Add</button>
+          <button
+            onclick="tambahDetailProduk()"
+            type="button"
+            class="btn btn-primary"
+          >
+            Add
+          </button>
         </div>
       </div>
     </div>

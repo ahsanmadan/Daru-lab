@@ -294,10 +294,20 @@ function tambahCaraPemakaian() {
     inputElement.value = "";
   }
 }
+function convertListToJson() {
+  const ulElement = document.getElementById("caraPemakaian");
+  const liElements = ulElement.querySelectorAll("li");
+  const dataArray = [];
+
+  liElements.forEach((li) => {
+    dataArray.push(li.textContent.trim());
+  });
+
+  return JSON.stringify({ daftarCaraPemakaian: dataArray });
+}
 function tambahDetailProduk() {
   let urlParams = new URLSearchParams(window.location.search);
   let id = urlParams.get("id");
-  var daftarCaraPemakaian = $("#caraPemakaian").text(); 
   let pic1 = $("#detail-pic1-input").prop("files")[0];
   let judul = $("#detail-judul-input").val();
   let detaildesc = $("#detail-desc-input").val();
@@ -308,18 +318,16 @@ function tambahDetailProduk() {
     return;
   }
 
-  // Validasi tipe file (hanya menerima gambar)
   if (
-    !pic1.type.startsWith("image/") ||
-    !pic2.type.startsWith("image/") ||
-    pic1.type === "image/gif" ||
-    pic2.type === "image/gif"
+    !pic1.type.startsWith("image/") &&
+    pic1.type !== "image/gif" &&
+    !pic2.type.startsWith("image/") &&
+    pic2.type !== "image/gif"
   ) {
     alert("Hanya gambar yang di perbolehkan");
     return;
   }
 
-  // Validasi kapasitas gambar (maksimum 2 megabyte)
   if (pic1.size > 2 * 1024 * 1024 || pic2.size > 2 * 1024 * 1024) {
     alert("Ukuran gambar melebihi batas (Maksimal 2 MB)");
     return;
@@ -336,35 +344,42 @@ function tambahDetailProduk() {
     let image2 = new Image();
     image2.src = URL.createObjectURL(pic2);
     image2.onload = function () {
-      if (image2.width < 700 || image2.height < 700) {
-        alert("Ukuran gambar kedua harus minimal 700x700");
+      if (image2.width < 420 || image2.height < 420) {
+        alert("Ukuran gambar kedua harus minimal 420x420");
         return;
       }
 
-      // Lanjutkan dengan pengiriman data (form_data, dll.)
       let form_data = new FormData();
       form_data.append("judul_give", judul);
       form_data.append("pic1_give", pic1);
       form_data.append("pic2_give", pic2);
       form_data.append("desc_give", detaildesc);
       form_data.append("id_give", id);
-      // Kirim juga daftar cara pemakaian dalam bentuk JSON
-      form_data.append("daftarCaraPemakaian", JSON.stringify({ daftarCaraPemakaian }));
+      form_data.append("jsonData", convertListToJson());
 
       $.ajax({
         url: "/tambahDetailProduk",
         type: "POST",
-        processData: false,
         contentType: false,
+        processData: false,
         data: form_data,
         success: function (response) {
           alert(response.msg);
+          window.location.reload();
         },
-        error: function (xhr, status, error) {
+        error: function (error) {
           alert("Terjadi kesalahan: " + error);
           console.error("Terjadi kesalahan:", error);
         },
       });
     };
   };
+}
+
+function produk_detail(folder) {
+  $.ajax({
+    type: "GET",
+    url: `/produk/${folder}`,
+    success: function (response) {},
+  });
 }
