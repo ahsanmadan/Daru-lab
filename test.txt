@@ -1,6 +1,0 @@
-penggunaan: Object
-    daftarCaraPemakaian : Array
-        0:"Bite down on your bit."
-        1:"Brush with a wet toothbrush."
-        2:"Smile and watch it foam up like magic."
-        3:"Repeat twice a day, every day."

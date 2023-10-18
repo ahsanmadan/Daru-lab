@@ -33,7 +33,7 @@ def home():
 
 @app.route('/faq')
 def faq():
-    return render_template('FAQs.html')
+    return render_template('faq.html')
 
 
 @app.route('/produk')
