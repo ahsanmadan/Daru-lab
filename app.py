@@ -8,16 +8,25 @@ from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
 import requests
 import os
-from bson import ObjectId
 from os.path import join, dirname
+from bson import ObjectId
 import shutil
 import uuid
 import random
 import secrets
+from dotenv import load_dotenv
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+MONGODB_URI = os.environ.get("MONGODB_URI")
+DB_NAME = os.environ.get("DB_NAME")
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
 SECRET_KEY = "DARU"
+
+client = MongoClient(MONGODB_URI)
+db = client[DB_NAME]
 
 uri = "mongodb+srv://test:clean@cluster0.hmhssac.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(uri)
@@ -429,7 +438,7 @@ def produkdetail(folder):
         detail = list(db.detail_produk.find(
             {'folder': id_folder}, {'_id': False}))
 
-        return render_template('detailProduk.html', post=post, detail=detail,username=session.get('username'))
+        return render_template('detailProduk.html', post=post, detail=detail, username=session.get('username'))
 
     # Handle jika tidak ada post dengan folder yang diberikan
     return render_template('error.html', message='Produk tidak ditemukan')
