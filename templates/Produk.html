@@ -148,7 +148,7 @@
                 style="height: 257px"
               />
               <div class="button-overlay d-grid gap-2 w-100 container">
-                <a class="rounded-pill btn btn-dark" href="/produk1"
+                <a class="rounded-pill btn btn-dark" href="/produk4"
                   >Learn More</a
                 >
                 <button class="rounded-pill btn btn-outline-light fw-medium">
@@ -168,8 +168,9 @@
               </div>
 
               <p style="font-size: 14px" class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Perferendis, earum.
+                Mengangkat noda dan mengkilapkan kaca mobil. Berfungsi tanpa
+                meninggalkan bekas pada kaca serta tidak meninggalkan residu
+                pada tabung reservoir.
               </p>
             </div>
           </div>
@@ -184,7 +185,9 @@
                 style="height: 257px"
               />
               <div class="button-overlay d-grid gap-2 w-100 container">
-                <button class="rounded-pill btn btn-dark">Learn More</button>
+                <a class="rounded-pill btn btn-dark" href="/produk3"
+                  >Learn More</a
+                >
                 <button class="rounded-pill btn btn-outline-light fw-medium">
                   Add to Cart
                 </button>
@@ -201,8 +204,9 @@
               </div>
 
               <p style="font-size: 14px" class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Perferendis, earum.
+                Secara simpel dan anti ribet tidak diperlukan penggosokan
+                permukaan bagian dalam kloset duduk menggunakan tangan yang
+                terkadang sedikit menjijikkan
               </p>
             </div>
           </div>
@@ -217,7 +221,9 @@
                 style="height: 257px"
               />
               <div class="button-overlay d-grid gap-2 w-100 container">
-                <button class="rounded-pill btn btn-dark">Learn More</button>
+                <a class="rounded-pill btn btn-dark" href="/produk1"
+                  >Learn More</a
+                >
                 <button class="rounded-pill btn btn-outline-light fw-medium">
                   Add to Cart
                 </button>
@@ -234,8 +240,8 @@
               </div>
 
               <p style="font-size: 14px" class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Perferendis, earum.
+                Menghilangkan kerak dan residu bekas detergen. Serta membasmi
+                kuman di dalam tabung mesin cuci.
               </p>
             </div>
           </div>
@@ -250,7 +256,9 @@
                 style="height: 257px"
               />
               <div class="button-overlay d-grid gap-2 w-100 container">
-                <button class="rounded-pill btn btn-dark">Learn More</button>
+                <a class="rounded-pill btn btn-dark" href="/produk2"
+                  >Learn More</a
+                >
                 <button class="rounded-pill btn btn-outline-light fw-medium">
                   Add to Cart
                 </button>
@@ -267,8 +275,8 @@
               </div>
 
               <p style="font-size: 14px" class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Perferendis, earum.
+                Menghilangkan noda di kaca, marmer, besi, dan kayu tanpa
+                meninggalkan bekas noda ataupun keputihan.
               </p>
             </div>
           </div>
@@ -285,8 +293,8 @@
               style="width: 100%; height: 370px"
             />
             <div class="button-overlay d-grid gap-2 w-100 container">
-              <button class="rounded-pill btn btn-dark">Learn More</button>
-              <button class="rounded-pill btn btn-outline-dark fw-medium">
+              <a class="rounded-pill btn btn-dark" href="/produk">Learn More</a>
+              <button class="rounded-pill btn btn-outline-light fw-medium">
                 Add to Cart
               </button>
             </div>
@@ -304,8 +312,8 @@
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <!-- isi product -->
         {% for def in data %} {% set name = def.pname %} {% set img = def.ppic
-        %} {% set id = def._id %} {% set folder = def.folder %} {% set price =
-        def.price %} {% set desc = def.desc %}
+        %} {% set id = def.idProduk %} {% set folder = def.folder %} {% set
+        price = def.price %} {% set desc = def.desc %}
         <div class="col">
           <div data-aos="zoom-in-up" class="card h-100 border border-0">
             <div class="position-relative d-inline-block image-container">
@@ -316,7 +324,11 @@
                 style="height: 350px"
               />
               <div class="button-overlay d-grid gap-2 w-100 container">
-                <a href="/produk/{{folder}}" class="rounded-pill btn btn-dark">Learn More</a>
+                <a
+                  href="/produk/{{folder}}?id={{id}}"
+                  class="rounded-pill btn btn-dark"
+                  >Learn More</a
+                >
                 <button
                   class="rounded-pill btn btn-outline-light text-dark fw-medium"
                 >
@@ -345,44 +357,9 @@
     </div>
   </div>
 
-  <a
-    type="button"
-    class="btn btn-success btn-toast-fixed p-3 rounded-circle"
-    id="liveToastBtn"
-  >
-    <i class="fa-solid fa-comment-dots fs-2" style="color: #ffffff"></i>
-  </a>
-
-  <div class="toast-container position-fixed end-0 p-3 toast-bt">
-    <div
-      id="liveToast"
-      class="toast"
-      role="alert"
-      aria-live="assertive"
-      aria-atomic="true"
-    >
-      <div class="toast-header">
-        <strong class="me-auto">Daru Lab</strong>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="toast"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="toast-body row mb-3">
-        <div class="col-md-8">
-          <button class="btn btn-primary mb-3 col-md-10">
-            Kontak untuk info lebih lanjut
-          </button>
-          <button class="btn btn-primary mb-3">@daru.lab</button>
-          <button class="btn btn-primary col-md-8">@daru.lab</button>
-          <p class="mt-3">Daru bot</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  
+  <!-- cart -->
+  {%include "temp/cart.html"%}
   <!-- footer -->
   <footer class="z-2">{% include "temp/Temp-footer.html"%}</footer>
   {%include "temp/Main-js.html"%}

@@ -82,7 +82,7 @@ function sign_in() {
 function sign_out() {
   $.removeCookie("mytoken", { path: "/" });
   alert("Signed out!");
-  window.location.href = "/";
+  window.location.href = "/logout";
 }
 
 // function listUsers() {
@@ -228,37 +228,155 @@ function editProduk(id) {
   });
 }
 function prosesEdit(id) {
-  let name= $("#pname-edit").val();
+  let name = $("#pname-edit").val();
   let desc = $("#desc-edit").val();
   let price = $("#price-edit").val();
   let newPpic = $("#ppic-edit")[0].files[0];
-  console.log(name,desc,price)
-  // let formData = new FormData();
-  // formData.append("pname-give", name);
-  // formData.append("desc-give", desc);
-  // formData.append("price-give", price);
+  console.log(name, desc, price);
+  let formData = new FormData();
+  formData.append("pname-give", name);
+  formData.append("desc-give", desc);
+  formData.append("price-give", price);
 
-  // if (newPpic) {
-  //   formData.append("ppic-give", newPpic);
-  // }
+  if (newPpic) {
+    formData.append("ppic-give", newPpic);
+  }
 
-  // $.ajax({
-  //   type: "POST",
-  //   url: `/admin/prosesEdit/${id}`,
-  //   data: formData,
-  //   contentType: false,
-  //   processData: false,
-  //   success: function (response) {
-  //     if (response.result === "success") {
-  //       window.location.reload();
-  //     } else {
-  //       alert(response.msg);
-  //     }
-  //   },
-  // });
+  $.ajax({
+    type: "POST",
+    url: `/admin/prosesEdit/${id}`,
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function (response) {
+      if (response.result === "success") {
+        window.location.reload();
+      } else {
+        alert(response.msg);
+      }
+    },
+  });
 }
 
 function produkDetail(folder) {
+  $.ajax({
+    type: "GET",
+    url: `/produk/${folder}`,
+    success: function (response) {},
+  });
+}
+function addEllipsis() {
+  const elements = document.getElementsByClassName("ellipsis-text");
+  for (let i = 0; i < elements.length; i++) {
+    const element = elements[i];
+    const max_length = 70; // Ganti dengan panjang maksimum yang Anda inginkan
+    if (element.textContent.length > max_length) {
+      element.textContent =
+        element.textContent.substring(0, max_length) + "...";
+    }
+  }
+}
+
+// Panggil fungsi addEllipsis saat halaman dimuat
+window.onload = addEllipsis;
+// fungsi mengambil list cara penggunaan detail produk
+function tambahCaraPemakaian() {
+  var inputElement = document.getElementById("inputCaraPemakaian");
+  var inputText = inputElement.value.trim();
+
+  if (inputText !== "") {
+    var list = document.getElementById("caraPemakaian");
+    var newItem = document.createElement("li");
+    newItem.textContent = inputText;
+    list.appendChild(newItem);
+
+    // Bersihkan teks di dalam textarea
+    inputElement.value = "";
+  }
+}
+function convertListToJson() {
+  const ulElement = document.getElementById("caraPemakaian");
+  const liElements = ulElement.querySelectorAll("li");
+  const dataArray = [];
+
+  liElements.forEach((li) => {
+    dataArray.push(li.textContent.trim());
+  });
+
+  return JSON.stringify({ daftarCaraPemakaian: dataArray });
+}
+function tambahDetailProduk() {
+  let urlParams = new URLSearchParams(window.location.search);
+  let id = urlParams.get("id");
+  let pic1 = $("#detail-pic1-input").prop("files")[0];
+  let judul = $("#detail-judul-input").val();
+  let detaildesc = $("#detail-desc-input").val();
+  let pic2 = $("#detail-pic2-input").prop("files")[0];
+
+  if (!pic1 || !judul || !detaildesc || !pic2) {
+    alert("Fill in the blanks!");
+    return;
+  }
+
+  if (
+    !pic1.type.startsWith("image/") &&
+    pic1.type !== "image/gif" &&
+    !pic2.type.startsWith("image/") &&
+    pic2.type !== "image/gif"
+  ) {
+    alert("Hanya gambar yang di perbolehkan");
+    return;
+  }
+
+  if (pic1.size > 2 * 1024 * 1024 || pic2.size > 2 * 1024 * 1024) {
+    alert("Ukuran gambar melebihi batas (Maksimal 2 MB)");
+    return;
+  }
+
+  let image1 = new Image();
+  image1.src = URL.createObjectURL(pic1);
+  image1.onload = function () {
+    if (image1.width < 700 || image1.height < 700) {
+      alert("Ukuran gambar pertama harus minimal 700x700");
+      return;
+    }
+
+    let image2 = new Image();
+    image2.src = URL.createObjectURL(pic2);
+    image2.onload = function () {
+      if (image2.width < 420 || image2.height < 420) {
+        alert("Ukuran gambar kedua harus minimal 420x420");
+        return;
+      }
+
+      let form_data = new FormData();
+      form_data.append("judul_give", judul);
+      form_data.append("pic1_give", pic1);
+      form_data.append("pic2_give", pic2);
+      form_data.append("desc_give", detaildesc);
+      form_data.append("id_give", id);
+      form_data.append("jsonData", convertListToJson());
+
+      $.ajax({
+        url: "/tambahDetailProduk",
+        type: "POST",
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function (response) {
+          alert(response.msg);
+          window.location.reload();
+        },
+        error: function (error) {
+          alert("Terjadi kesalahan: " + error);
+          console.error("Terjadi kesalahan:", error);
+        },
+      });
+    };
+  };
+}
+
+function produk_detail(folder) {
   $.ajax({
     type: "GET",
     url: `/produk/${folder}`,

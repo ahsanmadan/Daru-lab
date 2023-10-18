@@ -29,6 +29,13 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script src="	https://cdnjs.cloudflare.com/ajax/libs/js-cookie/1.5.1/js.cookie.min.js"></script>
     <link
       rel="stylesheet"
@@ -37,6 +44,12 @@
     <script src="{{ url_for('static', filename='js/daru/daru.js') }}"></script>
   </head>
   <body>
+    {% if error_message %}
+    <script>
+      // Menampilkan pesan kesalahan dengan alert JavaScript
+      alert("{{ error_message }}");
+    </script>
+    {% endif %}
     <div id="stars"></div>
     <div id="stars2"></div>
     <div id="stars3"></div>
@@ -113,7 +126,10 @@
                             id="nama-input"
                             required
                           />
-                          <i class="input-icon uil uil-user"></i>
+                          <i
+                            style="left: 25px"
+                            class="input-icon fa-solid fa-child"
+                          ></i>
                         </div>
                         <div class="form-group mt-2">
                           <input
