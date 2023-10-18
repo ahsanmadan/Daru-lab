@@ -7,24 +7,25 @@ import hashlib
 from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
 import requests
-import os
-from os.path import join, dirname
 from bson import ObjectId
-import shutil
 import uuid
 import random
 import secrets
+import os
 from os.path import join, dirname
+import shutil
 from dotenv import load_dotenv
 
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
+
 
 MONGODB_URI = os.environ.get("MONGODB_URI")
 DB_NAME = os.environ.get("DB_NAME")
 
 client = MongoClient(MONGODB_URI)
 db = client[DB_NAME]
+
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
