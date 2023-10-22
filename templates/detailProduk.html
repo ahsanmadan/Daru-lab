@@ -18,9 +18,11 @@
     produk_detail(folder);
   });
 </script>
-<body>
+<body class="pop">
   <!-- bagian nav -->
-  <nav class="z-2 sticky-top black">{%include "temp/Temp-nav.html"%}</nav>
+  <nav class="z-2 sticky-top navbar navbar-expand-lg navbar-dark">
+    {%include "temp/Temp-nav.html" %}
+  </nav>
   <!-- akhir nav -->
   <div class="">
     <div class="row">
@@ -45,7 +47,7 @@
       </div>
 
       <div class="col-md-5 mb-4 px-5 mt-3">
-        {% if username %}
+        {% if username%}
         <div class="row mb-3">
           <div class="col-md-12 text-end">
             <button
@@ -59,7 +61,7 @@
             </button>
           </div>
         </div>
-        {% endif %}
+        {%endif%}
         <h1>
           {% if detail %} {% for item in detail %} {% if item.title %}
           {{item.title}} {% else %} None {% endif %} {% endfor %} {% endif %}
@@ -68,16 +70,21 @@
           ><span class="text-secondary fw-medium">Made by </span
           ><b>Daru Lab</b></span
         >
-        <h2 class="text-war mt-4 mb-3">★★★★★</h2>
+        <h2 class="text-war mt-4 mb-3">★ {{ "%.1f"|format(average_rating) }}</h2>
         <hr />
         <p class="mb-5 mt-5">
           {% if detail %} {% for item in detail %} {% if item.desc %}
           {{item.desc}} {% else %} None {% endif %} {% endfor %} {% endif %}
         </p>
-
-        <button class="btn btn-dark w-100 rounded-pill">
-          <span class="fw-medium">Add to Cart</span>
-        </button>
+        {% for item in detail %} {% for datas in data%}
+        <button
+          class="btn btn-dark w-100 rounded-pill add-to-cart"
+          data-title="{{item.title}}"
+          data-price="{{datas.price}}"
+          data-image="../static/{{item.pic1}}"
+        >
+          Add to Cart</button
+        >{% endfor %} {% endfor %}
       </div>
     </div>
     <div class="container-md">
@@ -85,17 +92,10 @@
         <div class="col-md-6 mb-4 mt-5">
           <h3 data-aos="zoom-in-up" class="mb-3">Cara Pemakaian</h3>
           <ol class="list-group list-group-flush" data-aos="zoom-in-up">
-            {% if detail %}
-            {% for item in detail %}
-            {% if item.penggunaan %}
-            {% for cara in item.penggunaan.daftarCaraPemakaian%}
+            {% if detail %} {% for item in detail %} {% if item.penggunaan %} {%
+            for cara in item.penggunaan.daftarCaraPemakaian%}
             <li class="list-group-item">{{ cara }}</li>
-            {%endfor%} 
-            {% else %} 
-            None 
-            {% endif %} 
-            {% endfor %} 
-            {% endif %}
+            {%endfor%} {% else %} None {% endif %} {% endfor %} {% endif %}
           </ol>
         </div>
         <div class="col-6 d-flex justify-content-end mb-4 mx-auto">
@@ -126,85 +126,44 @@
         <button
           data-aos="zoom-in-up"
           class="col-3 btn btn-outline-dark fw-bold"
+          data-bs-toggle="modal"
+          data-bs-target="#commentmodal"
         >
-          Write a Review
+          Tulis Ulasan
         </button>
       </div>
       <span
         data-aos="zoom-in-up"
         style="box-sizing: border-box"
         class="fs-5 fw-bold bg-dark text-light text-center align-item-center p-3 rounded"
-        >4.9
-        <span class="text-war mb-3 fw-bold fs-5 text-light"> ★★★★★</span></span
+        >{{ "%.1f"|format(average_rating) }}
+        <span class="text-war mb-3 fw-bold fs-5 text-light"> ★</span></span
       >
       <!-- isi komen -->
       <!-- komen akan muncul berdasarkan id -->
+      {% for def in com %} {% set name = def.netizen %} {% set rate = def.rating
+      %} {% set head = def.head %} {% set isi = def.isi %} {% set date =
+      def.date %}
       <div class="row my-5 comment-list" data-aos="zoom-in-up">
         <div class="col-md-3 my-auto">
-          <p class="fw-bold fs-4">Janis w.p</p>
+          <p class="fw-bold fs-4">{{name}}</p>
           <hr />
-          <span class="text-secondary">5 Years ago</span>
+          <span class="text-secondary">{{date}}</span>
         </div>
         <div class="col-md-9">
-          <p class="text-war mb-3 fw-bold fs-5">★★★★★</p>
-          <p class="fw-light fs-4">Simple , clean and easy to use.</p>
-          <span class="fs-16px"
-            >I love that it travels well on trips. It’s a refreshing peppermint
-            flavor tha does not burn. Just chew it up and brush! No messy
-            toothpaste tube to deal with. Highly recommend !</span
-          >
+          <p class="text-war mb-3 fw-bold fs-5">
+            {% if rate == 5 %} ★★★★★ {% elif rate == 4 %} ★★★★ {% elif rate == 3
+            %} ★★★ {% elif rate == 2 %} ★★ {% elif rate == 1 %} ★ {% endif %}
+          </p>
+          <p class="fw-light fs-4">{{head}}</p>
+          <span class="fs-16px">{{isi}}</span>
         </div>
       </div>
+      {% endfor %}
       <!-- akhir isi komen -->
       <!-- tombol untuk melihatkan lebih banyak komen -->
       <div class="com-foot text-center">
         <hr class="mt-5" />
-        <button class="btn-more">
-          Show More <i class="fa-solid fa-caret-down" style="color: grey"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- button contact -->
-  <button
-    type="button"
-    class="btn btn-success btn-toast-fixed p-3 rounded-circle"
-    id="liveToastBtn"
-  >
-    <i class="fa-solid fa-comment-dots fs-2" style="color: #ffffff"></i>
-  </button>
-  <!-- akhir button contact -->
-
-  <!-- bagian kontak -->
-  <div id="toastv" class="toast-container position-fixed end-0 p-3 toast-bt">
-    <div
-      id="liveToast"
-      class="toast shadow"
-      role="alert"
-      aria-live="assertive"
-      aria-atomic="true"
-    >
-      <div class="toast-header">
-        <strong class="me-auto">Daru Lab</strong>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="toast"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="toast-body row mb-3">
-        <div class="col-md-8">
-          <button class="btn btn-primary mb-3 col-md-10">
-            Kontak untuk info lebih lanjut
-          </button>
-          <button class="btn btn-primary mb-3">
-            <i class="bi bi-instagram"></i>@daru.lab
-          </button>
-          <button class="btn btn-primary">+62 812-1656-1016</button>
-          <p class="mt-3">Daru bot</p>
-        </div>
       </div>
     </div>
   </div>

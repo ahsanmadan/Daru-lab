@@ -1,5 +1,13 @@
 <head>
   <title>Daru Lab</title>
+  <!-- Metadata Gambar untuk Media Sosial (Open Graph Protocol) -->
+  <meta property="og:title" content="Daru Laboratory" />
+  <meta
+    property="og:description"
+    content="Website ini akan menampilkan profil serta produk produk yang dijual Oleh Daru Laboratory"
+  />
+  <meta property="og:image" content="{{ url_for('static', filename='img/meta.png') }}" />
+  <meta property="og:type" content="website" />
   {% include "temp/Home-css.html" %}
 </head>
 
@@ -11,7 +19,9 @@
   </script>
   {% endif %}
   <!-- bagian nav -->
-  <nav class="z-2 fixed-top">{%include "temp/Temp-nav.html" %}</nav>
+  <nav class="z-2 fixed-top navbar navbar-expand-lg navbar-dark">
+    {%include "temp/Temp-nav.html" %}
+  </nav>
   <!-- akhir nav -->
   <!-- banner atas -->
   <div
@@ -32,7 +42,7 @@
 
   <!-- display produk -->
   <div class="container mt-5 text-center mb-5 z-0" id="formula">
-    <h3 class="mb-5" data-aos="zoom-in-up">Our Products</h3>
+    <h3 class="mb-5" data-aos="zoom-in-up">Produk Unggulan</h3>
     <div class="row mb-3">
       <div class="col-md-2"></div>
       <div class="col-md-2 mb-3">

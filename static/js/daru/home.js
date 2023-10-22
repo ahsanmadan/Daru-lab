@@ -1,17 +1,9 @@
-$(window).on("scroll", function () {
-  if ($(window).scrollTop()) {
-    $("nav").addClass("black", "shadow");
+var nav = document.querySelector("nav");
+
+window.addEventListener("scroll", function () {
+  if (this.window.pageYOffset > 100) {
+    nav.classList.add("transnav", "shadow");
   } else {
-    $("nav").removeClass("black", "shadow");
+    nav.classList.remove("transnav", "shadow");
   }
 });
-
-const toastTrigger = document.getElementById("liveToastBtn");
-const toastLiveExample = document.getElementById("liveToast");
-
-if (toastTrigger) {
-  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
-  toastTrigger.addEventListener("click", () => {
-    toastBootstrap.show();
-  });
-}

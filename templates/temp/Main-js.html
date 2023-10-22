@@ -1,3 +1,87 @@
+<!-- Modal komen -->
+<div
+  class="modal fade"
+  id="commentmodal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+          Tulis Ulasan anda
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="rating mb-3">
+          <h6
+            class="text-dark fw-medium ms-1"
+            style="margin-bottom: -10px; font-size: 14px"
+          >
+            Rating
+          </h6>
+          <input type="radio" hidden name="rate" id="rating_5" value="5" />
+          <label for="rating_5"></label>
+
+          <input type="radio" hidden name="rate" id="rating_4" value="4" />
+          <label for="rating_4"></label>
+
+          <input type="radio" hidden name="rate" id="rating_3" value="3" />
+          <label for="rating_3"></label>
+
+          <input type="radio" hidden name="rate" id="rating_2" value="2" />
+          <label for="rating_2"></label>
+
+          <input type="radio" hidden name="rate" id="rating_1" value="1" />
+          <label for="rating_1"></label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="nama-pengulas"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Nama Pengulas</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="singkat"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Secara singkat tentang produk ini</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <textarea
+            class="form-control"
+            placeholder="Leave a comment here"
+            id="ulasan"
+            style="height: 150px"
+          ></textarea>
+          <label for="floatingTextarea2">Ulasan anda</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Batal
+        </button>
+        <button onclick="addComment()" class="btn btn-dark">Kirim</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- javascript -->
 
 <!-- AOS  -->
@@ -6,27 +90,6 @@
   AOS.init();
 </script>
 <!-- script bootstrap js -->
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-  crossorigin="anonymous"
-></script>
-<script src="https://unpkg.com/htmlincludejs"></script>
 <script src="{{ url_for('static', filename='js/daru/pagemain.js') }}"></script>
 <script src="{{ url_for('static', filename='js/daru/cart.js') }}"></script>
-<script type="text/javascript">
-  /*menu button onclick function*/
-  $(document).ready(function () {
-    $(".menu h4").click(function () {
-      $("nav ul").toggleClass("active");
-    });
-  });
-  $(window).scroll(function () {
-    if ($(window).scrollTop() > 10) {
-      $("#navBar").addClass("floatingNav");
-    } else {
-      $("#navBar").removeClass("floatingNav");
-    }
-  });
-</script>
 <!-- akhir javascript -->

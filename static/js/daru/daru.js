@@ -269,7 +269,7 @@ function addEllipsis() {
   const elements = document.getElementsByClassName("ellipsis-text");
   for (let i = 0; i < elements.length; i++) {
     const element = elements[i];
-    const max_length = 70; // Ganti dengan panjang maksimum yang Anda inginkan
+    const max_length = 70;
     if (element.textContent.length > max_length) {
       element.textContent =
         element.textContent.substring(0, max_length) + "...";
@@ -383,3 +383,53 @@ function produk_detail(folder) {
     success: function (response) {},
   });
 }
+
+function addComment() {
+  const url = window.location.href;
+  const urlObj = new URL(url);
+  const id = urlObj.searchParams.get("id");
+  const rating = $('input[name="rate"]:checked').val();
+  let nama = $("#nama-pengulas").val();
+  let head = $("#singkat").val();
+  let isi = $("#ulasan").val();
+  const date = new Date();
+
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, "0"); 
+  const day = date.getDate().toString().padStart(2, "0"); 
+  const hours = date.getHours().toString().padStart(2, "0"); 
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+  const seconds = date.getSeconds().toString().padStart(2, "0");
+
+  const formatDate = `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
+  console.log(id, nama, head, rating, isi, formatDate);
+  if ((rating, head, nama, isi == "")) {
+    alert("Fill in the blanks");
+    return;
+  }
+  let form_data = new FormData();
+  form_data.append("rating_give", rating);
+  form_data.append("id_give", id);
+  form_data.append("nama_give", nama);
+  form_data.append("head_give", head);
+  form_data.append("isi_give", isi);
+  form_data.append("date_give", formatDate);
+
+  $.ajax({
+    url: "/tambahkomen",
+    type: "POST",
+    contentType: false,
+    processData: false,
+    data: form_data,
+    success: function (response) {
+      alert(response.msg);
+      window.location.reload();
+    },
+    error: function (error) {
+      alert("Terjadi kesalahan: " + error);
+      console.error("Terjadi kesalahan:", error);
+    },
+  });
+}
+
+

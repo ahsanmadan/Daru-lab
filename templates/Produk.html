@@ -22,114 +22,23 @@
 
   /* Munculkan tombol saat dihover */
 </style>
-<body>
+<body class="pop">
   <!-- bagian nav -->
 
-  <nav class="z-2 sticky-top black">{%include "temp/Temp-nav.html"%}</nav>
+  <nav class="z-2 sticky-top navbar navbar-expand-lg navbar-dark">{%include "temp/Temp-nav.html" %}</nav>
   <!-- akhir nav -->
 
   <div class="container">
     <div class="card-1">
       <div class="row mt-5 text-center">
         <div class="col-md-12 mb-5">
-          <h2>Featured product</h2>
+          <h2>Produk Unggulan</h2>
           <h5>Everything becomes easier to clean</h5>
         </div>
       </div>
-      <!-- <div class="my-5"> -->
-      <!-- <div class="row mt-3 mb-5">
-          <div class="col-md-6 text-center">
-            <img
-              class="rounded"
-              width=" 500px"
-              src="../static/img/image product/pil kloset 2.png"
-              alt=""
-            />
-          </div>
-          <div class="col-md-3 text-center">
-            <h6>Pil Pembersih Mesin Cuci</h6>
-            <h2 class="text-war">★★★★★</h2>
-            <img
-              width="150px"
-              src="../static/img/image product/PilMESIN CUCI.png"
-              alt=""
-              class="shadow"
-            />
-            <div class="mt-4">
-              <a
-                href="/produk1"
-                class="btn btn-outline-daru rounded-pill shadow"
-                >Beli Sekarang</a
-              >
-            </div>
-          </div>
-
-          <div class="col-md-3 text-center">
-            <h6>Pil Pembersih Kaca</h6>
-            <h2 class="text-war">★★★★★</h2>
-            <img
-              width=" 150px"
-              src="../static/img/image product/Pil PEMBERSIH KACA.png"
-              alt=""
-              class="shadow"
-            />
-            <div class="mt-4">
-              <a
-                href="/produk2"
-                class="btn btn-outline-daru rounded-pill shadow"
-                >Beli Sekarang</a
-              >
-            </div>
-          </div> -->
-      <!-- </div> -->
-      <!-- <div class="row mb-5">
-          <div class="col-md-3 text-center">
-            <h6>Pil Pembersih Kloset duduk</h6>
-            <h2 class="text-war">★★★★★</h2>
-            <img
-              width="150px"
-              src="../static/img/image product/Pil PEMBERSIH KLOSET.png"
-              alt=""
-              class="shadow"
-            />
-            <div class="mt-4">
-              <a
-                href="/produk3"
-                class="btn btn-outline-daru rounded-pill shadow"
-                >Beli Sekarang</a
-              >
-            </div>
-          </div>
-
-          <div class="col-md-3 text-center">
-            <h6>Pil Pembersih Wiper Mobil</h6>
-            <h2 class="text-war">★★★★★</h2>
-            <img
-              width=" 150px"
-              src="../static/img/image product/Pil PEMBERSIH WIPER M.png"
-              alt=""
-              class="shadow"
-            />
-            <div class="mt-4">
-              <a
-                href="/produk4"
-                class="btn btn-outline-daru rounded-pill shadow"
-                >Beli Sekarang</a
-              >
-            </div> -->
-      <!-- </div>
-          <div class="col-md-6 text-center">
-            <img
-              width=" 500px"
-              src="../static/img/image product/Pil pembersih mesin cuci2.png"
-              alt=""
-            />
-          </div>
-        </div>
-      </div> -->
       <div class="row row-cols-1 g-4">
         <div class="col-md-6">
-          <div data-aos="zoom-in-up" class="card h-100 border border-0">
+          <div  class="card h-100 border border-0">
             <img
               src="../static/img/image product/atas.jpg"
               class="card-img-top"
@@ -139,7 +48,7 @@
           </div>
         </div>
         <div class="col-md-3">
-          <div data-aos="zoom-in-up" class="card h-100 border border-0">
+          <div  class="card h-100 border border-0">
             <div class="position-relative d-inline-block image-container">
               <img
                 src="../static/img/image product/test1.png"
@@ -148,34 +57,37 @@
                 style="height: 257px"
               />
               <div class="button-overlay d-grid gap-2 w-100 container">
-                <a class="rounded-pill btn btn-dark" href="/produk4"
+                <a class="rounded-pill btn btn-dark" href="/produk4?id=4"
                   >Learn More</a
                 >
-                <button class="rounded-pill btn btn-outline-light fw-medium">
+                <button
+                  class="rounded-pill btn btn-outline-light fw-medium add-to-cart"
+                  data-title="Pil Pembersih Wiper Mobil"
+                  data-price="50148"
+                  data-image="../static/img/image product/test1.png"
+                >
                   Add to Cart
                 </button>
               </div>
             </div>
-
             <div class="card-body p-0 py-2">
               <div class="row">
-                <span style="font-size: 18px" class="fw-semibold col-6"
+                <span style="font-size: 18px" class="fw-semibold col-8"
                   >Pil Pembersih Wiper Mobil</span
                 >
-                <span style="font-size: 14px" class="text-end fw-medium col-6"
+                <span style="font-size: 14px" class="text-end fw-medium col-4"
                   >Rp. 50.148</span
                 >
               </div>
 
               <p style="font-size: 14px" class="card-text">
-                Mengangkat noda dan mengkilapkan kaca mobil. Berfungsi tanpa
-                meninggalkan bekas pada kaca serta tidak meninggalkan residu
-                pada tabung reservoir.
+                Mengangkat noda dan mengkilapkan kaca mobil
               </p>
             </div>
           </div>
         </div>
-        <div data-aos="zoom-in-up" class="col-md-3">
+        <!--  -->
+        <div  class="col-md-3">
           <div class="card h-100 border border-0">
             <div class="position-relative d-inline-block image-container">
               <img
@@ -185,33 +97,36 @@
                 style="height: 257px"
               />
               <div class="button-overlay d-grid gap-2 w-100 container">
-                <a class="rounded-pill btn btn-dark" href="/produk3"
+                <a class="rounded-pill btn btn-dark" href="/produk3?id=3"
                   >Learn More</a
                 >
-                <button class="rounded-pill btn btn-outline-light fw-medium">
+                <button
+                  class="rounded-pill btn btn-outline-light fw-medium add-to-cart"
+                  data-title="Pil Pembersih Kloset Duduk"
+                  data-price="58062"
+                  data-image="../static/img/image product/test2.png"
+                >
                   Add to Cart
                 </button>
               </div>
             </div>
             <div class="card-body p-0 py-2">
               <div class="row">
-                <span style="font-size: 18px" class="fw-semibold col-6"
+                <span style="font-size: 18px" class="fw-semibold col-8"
                   >Pil Pembersih Kloset Duduk</span
                 >
-                <span style="font-size: 14px" class="text-end fw-medium col-6"
+                <span style="font-size: 14px" class="text-end fw-medium col-4"
                   >Rp. 58.062</span
                 >
               </div>
 
               <p style="font-size: 14px" class="card-text">
                 Secara simpel dan anti ribet tidak diperlukan penggosokan
-                permukaan bagian dalam kloset duduk menggunakan tangan yang
-                terkadang sedikit menjijikkan
               </p>
             </div>
           </div>
         </div>
-        <div data-aos="zoom-in-up" class="col-md-3">
+        <div  class="col-md-3">
           <div class="card h-100 border border-0">
             <div class="position-relative d-inline-block image-container">
               <img
@@ -221,33 +136,37 @@
                 style="height: 257px"
               />
               <div class="button-overlay d-grid gap-2 w-100 container">
-                <a class="rounded-pill btn btn-dark" href="/produk1"
+                <a class="rounded-pill btn btn-dark" href="/produk1?id=1"
                   >Learn More</a
                 >
-                <button class="rounded-pill btn btn-outline-light fw-medium">
+                <button
+                  class="rounded-pill btn btn-outline-light fw-medium add-to-cart"
+                  data-title="Pil Pembersih Mesin Cuci"
+                  data-price="67789"
+                  data-image="../static/img/image product/test3.png"
+                >
                   Add to Cart
                 </button>
               </div>
             </div>
             <div class="card-body p-0 py-2">
               <div class="row">
-                <span style="font-size: 18px" class="fw-semibold col-6"
+                <span style="font-size: 18px" class="fw-semibold col-8"
                   >Pil Pembersih Mesin Cuci</span
                 >
-                <span style="font-size: 14px" class="text-end fw-medium col-6"
+                <span style="font-size: 14px" class="text-end fw-medium col-4"
                   >Rp. 67.789</span
                 >
               </div>
 
               <p style="font-size: 14px" class="card-text">
-                Menghilangkan kerak dan residu bekas detergen. Serta membasmi
-                kuman di dalam tabung mesin cuci.
+                Menghilangkan kerak dan residu bekas detergen
               </p>
             </div>
           </div>
         </div>
         <div class="col-md-3">
-          <div data-aos="zoom-in-up" class="card h-100 border border-0">
+          <div  class="card h-100 border border-0">
             <div class="position-relative d-inline-block image-container">
               <img
                 src="../static/img/image product/test4.png"
@@ -256,34 +175,38 @@
                 style="height: 257px"
               />
               <div class="button-overlay d-grid gap-2 w-100 container">
-                <a class="rounded-pill btn btn-dark" href="/produk2"
+                <a class="rounded-pill btn btn-dark" href="/produk2?id=2"
                   >Learn More</a
                 >
-                <button class="rounded-pill btn btn-outline-light fw-medium">
+                <button
+                  class="rounded-pill btn btn-outline-light fw-medium add-to-cart"
+                  data-title="Pil Pembersih Kaca"
+                  data-price="42626"
+                  data-image="../static/img/image product/test4.png"
+                >
                   Add to Cart
                 </button>
               </div>
             </div>
             <div class="card-body p-0 py-2">
               <div class="row">
-                <span style="font-size: 18px" class="fw-semibold col-6"
+                <span style="font-size: 18px" class="fw-semibold col-8"
                   >Pil Pembersih Kaca</span
                 >
-                <span style="font-size: 14px" class="text-end fw-medium col-6"
+                <span style="font-size: 14px" class="text-end fw-medium col-a"
                   >Rp. 42.626</span
                 >
               </div>
 
               <p style="font-size: 14px" class="card-text">
                 Menghilangkan noda di kaca, marmer, besi, dan kayu tanpa
-                meninggalkan bekas noda ataupun keputihan.
+                meninggalkan bekas
               </p>
             </div>
           </div>
         </div>
         <div class="col-md-6">
           <div
-            data-aos="zoom-in-up"
             class="card h-100 border border-0 rounded-0"
           >
             <img
@@ -292,12 +215,6 @@
               alt="..."
               style="width: 100%; height: 370px"
             />
-            <div class="button-overlay d-grid gap-2 w-100 container">
-              <a class="rounded-pill btn btn-dark" href="/produk">Learn More</a>
-              <button class="rounded-pill btn btn-outline-light fw-medium">
-                Add to Cart
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -330,7 +247,10 @@
                   >Learn More</a
                 >
                 <button
-                  class="rounded-pill btn btn-outline-light text-dark fw-medium"
+                  class="rounded-pill btn btn-outline-light fw-medium add-to-cart"
+                  data-title="{{name}}"
+                  data-price="{{price}}"
+                  data-image="../static/{{img}}"
                 >
                   Add to Cart
                 </button>
@@ -357,7 +277,6 @@
     </div>
   </div>
 
-  
   <!-- cart -->
   {%include "temp/cart.html"%}
   <!-- footer -->

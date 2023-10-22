@@ -41,11 +41,15 @@
               </li>
               <li>
                 <a class="" href="/admin/product">
-                  <img class="icon" src="../static/img/svg/package.png" alt="" />Product</a
+                  <img
+                    class="icon"
+                    src="../static/img/svg/package.png"
+                    alt=""
+                  />Product</a
                 >
               </li>
-              <li class="active">
-                <a href="/admin/comment">
+              <li>
+                <a class="active" href="/admin/comment">
                   <span class="icon message" aria-hidden="true"></span>
                   Comments
                 </a>
@@ -108,10 +112,7 @@
         <!-- ! Main -->
         <main class="main users chart-page" id="skip-target">
           <div class="container">
-            <h2 class="main-title">Dashboard</h2>
-            <div style="justify-content: flex-end;display: flex;">
-              <button class="secondary-default-btn mb-20">Add Product</button>
-            </div>
+            <h2 class="main-title">Comment</h2>
             <div class="row">
               <div class="col-lg-12">
                 <div class="users-table table-wrapper">
@@ -121,34 +122,36 @@
                       <tr class="users-table-info">
                         <th>
                           <label class="users-table__checkbox ms-20">
-                            <input type="checkbox" class="check-all" />Thumbnail
+                            <input type="checkbox" class="check-all" />Nama
+                            Pengulas
                           </label>
                         </th>
-                        <th>Title</th>
+                        <th>Id produk</th>
+                        <th>Rating</th>
                         <th>Date</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                       <!-- isi -->
+                      {% for def in data %} {% set name = def.netizen %} {% set
+                      rate = def.rating %} {% set head = def.head %} {% set isi
+                      = def.isi %} {% set date = def.date %} {% set id = def.id
+                      %}
                       <tr>
                         <td>
                           <label class="users-table__checkbox">
                             <input type="checkbox" class="check" />
-                            <div class="categories-table-img">
-                              <picture
-                                ><source
-                                  srcset="{{ url_for('static', filename='img/categories/01.webp') }}"
-                                  type="image/webp" />
-                                <img
-                                  src="./img/categories/01.jpg"
-                                  alt="category"
-                              /></picture>
-                            </div>
+                            {{name}}
                           </label>
                         </td>
-                        <td>Starting your traveling blog with Vasco</td>
-                        <td>17.04.2021</td>
+                        <td>{{id}}</td>
+                        <td>
+                          {% if rate == 5 %} ★★★★★ {% elif rate == 4 %} ★★★★ {%
+                          elif rate == 3 %} ★★★ {% elif rate == 2 %} ★★ {% elif
+                          rate == 1 %} ★ {% endif %}
+                        </td>
+                        <td>{{date}}</td>
                         <td>
                           <span class="p-relative">
                             <button
@@ -163,12 +166,12 @@
                               ></i>
                             </button>
                             <ul class="users-item-dropdown dropdown">
-                              <li><a href="##">Edit</a></li>
-                              <li><a href="##">Delete</a></li>
+                              <li><a href="/deleteComment?id={{id}}">Delete</a></li>
                             </ul>
                           </span>
                         </td>
                       </tr>
+                      {%endfor%}
                     </tbody>
                   </table>
                 </div>

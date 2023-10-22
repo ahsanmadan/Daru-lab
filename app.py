@@ -7,29 +7,21 @@ import hashlib
 from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
 import requests
+import os
 from bson import ObjectId
+from os.path import join, dirname
+import shutil
 import uuid
 import random
 import secrets
-import os
-from os.path import join, dirname
-import shutil
-from dotenv import load_dotenv
-
-dotenv_path = join(dirname(__file__), '.env')
-load_dotenv(dotenv_path)
-
-
-MONGODB_URI = os.environ.get("MONGODB_URI")
-DB_NAME = os.environ.get("DB_NAME")
-
-client = MongoClient(MONGODB_URI)
-db = client[DB_NAME]
-
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
 SECRET_KEY = "DARU"
+
+uri = "mongodb+srv://test:daru@cluster0.hmhssac.mongodb.net/?retryWrites=true&w=majority"
+client = MongoClient(uri)
+db = client.daru
 
 TOKEN_KEY = "mytoken"
 
@@ -62,22 +54,62 @@ def dampak():
 
 @app.route('/produk1')
 def produk1():
-    return render_template('detail-Produk1.html')
+    id = int(request.args.get('id'))
+    data = list(db.comment.find({"id": id}, {'_id': False}))
+    ratings = db.comment.find({"id": id}, {"_id": 0, "rating": 1})
+    rating_values = [rating["rating"] for rating in ratings]
+    total_rating = sum(rating_values)
+    if len(rating_values) > 0:
+        average_rating = total_rating / len(rating_values)
+    else:
+        average_rating = 0  # Atau nilai lain yang sesuai jika tidak ada peringkat
+    total_comments = len(data)  # Menghitung jumlah komentar dalam 'data'
+    return render_template('detail-Produk1.html', average_rating=average_rating, data=data, total_comments=total_comments)
 
 
 @app.route('/produk2')
 def produk2():
-    return render_template('detail-Produk2.html')
+    id = int(request.args.get('id'))
+    data = list(db.comment.find({"id": id}, {'_id': False}))
+    ratings = db.comment.find({"id": id}, {"_id": 0, "rating": 1})
+    rating_values = [rating["rating"] for rating in ratings]
+    total_rating = sum(rating_values)
+    if len(rating_values) > 0:
+        average_rating = total_rating / len(rating_values)
+    else:
+        average_rating = 0  # Atau nilai lain yang sesuai jika tidak ada peringkat
+    total_comments = len(data)  # Menghitung jumlah komentar dalam 'data'
+    return render_template('detail-Produk2.html', average_rating=average_rating, data=data, total_comments=total_comments)
 
 
 @app.route('/produk3')
 def produk3():
-    return render_template('detail-Produk3.html')
+    id = int(request.args.get('id'))
+    data = list(db.comment.find({"id": id}, {'_id': False}))
+    ratings = db.comment.find({"id": id}, {"_id": 0, "rating": 1})
+    rating_values = [rating["rating"] for rating in ratings]
+    total_rating = sum(rating_values)
+    if len(rating_values) > 0:
+        average_rating = total_rating / len(rating_values)
+    else:
+        average_rating = 0  # Atau nilai lain yang sesuai jika tidak ada peringkat
+    total_comments = len(data)  # Menghitung jumlah komentar dalam 'data'
+    return render_template('detail-Produk3.html', average_rating=average_rating, data=data, total_comments=total_comments)
 
 
 @app.route('/produk4')
 def produk4():
-    return render_template('detail-Produk4.html')
+    id = int(request.args.get('id'))
+    data = list(db.comment.find({"id": id}, {'_id': False}))
+    ratings = db.comment.find({"id": id}, {"_id": 0, "rating": 1})
+    rating_values = [rating["rating"] for rating in ratings]
+    total_rating = sum(rating_values)
+    if len(rating_values) > 0:
+        average_rating = total_rating / len(rating_values)
+    else:
+        average_rating = 0  # Atau nilai lain yang sesuai jika tidak ada peringkat
+    total_comments = len(data)  # Menghitung jumlah komentar dalam 'data'
+    return render_template('detail-Produk4.html', average_rating=average_rating, data=data, total_comments=total_comments)
 
 
 # def verify_password(password):
@@ -214,14 +246,13 @@ def admin_user():
         return redirect(url_for("login", msg="Please login first"))
 
 
-@app.route("/admin/comment", methods=["POST", "GET"])
+@app.route("/admin/comment")
 def admin_comment():
     token_receive = request.cookies.get(TOKEN_KEY)
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=["HS256"])
-        user_info = db.users.find_one({'username': payload.get('id')})
-        data = list(db.users.find({}))
-        return render_template("admin-comment.html", user_info=user_info, data=data)
+        data = list(db.comment.find({}))
+        return render_template("admin-comment.html", data=data)
     except jwt.ExpiredSignatureError:
         return redirect(url_for("login", msg="Your login session has expired, please log in again"))
     except jwt.exceptions.DecodeError:
@@ -234,6 +265,15 @@ def deleteUser():
     db.users.delete_one({'_id': ObjectId(id)})
     data = db.users.find({})
     return render_template("admin-user.html", data=data)
+# akhir bagian user
+
+
+@app.route("/deleteComment", methods=['GET'])
+def deleteComment():
+    id = int(request.args.get("id"))
+    db.comment.delete_one({'id': id})
+    data = db.comment.find({})
+    return render_template("admin-comment.html", data=data)
 # akhir bagian user
 
 
@@ -437,7 +477,20 @@ def produkdetail(folder):
         detail = list(db.detail_produk.find(
             {'folder': id_folder}, {'_id': False}))
 
-        return render_template('detailProduk.html', post=post, detail=detail, username=session.get('username'))
+        data = list(db.produk.find(
+            {'folder': id_folder}, {'_id': False}))
+
+        id = int(request.args.get("id"))
+        com = list(db.comment.find({"id": id}))
+        ratings = db.comment.find({"id": id}, {"_id": 0, "rating": 1})
+        rating_values = [rating["rating"] for rating in ratings]
+        total_rating = sum(rating_values)
+        if len(rating_values) > 0:
+            average_rating = total_rating / len(rating_values)
+        else:
+            average_rating = 0  # Atau nilai lain yang sesuai jika tidak ada peringkat
+
+        return render_template('detailProduk.html',average_rating=average_rating,com=com, data=data, post=post, detail=detail, username=session.get('username'))
 
     # Handle jika tidak ada post dengan folder yang diberikan
     return render_template('error.html', message='Produk tidak ditemukan')
@@ -498,6 +551,27 @@ def tambahdetail():
         return jsonify({'msg': 'Data telah ditambahkan', 'result': 'success'})
     except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):
         return redirect(url_for('home'))
+
+
+@app.route("/tambahkomen", methods=["POST"])
+def tambahkomen():
+    rating = int(request.form['rating_give'])
+    date = request.form['date_give']
+    id = int(request.form['id_give'])
+    nama = request.form['nama_give']
+    head = request.form['head_give']
+    isi = request.form['isi_give']
+
+    doc = {
+        "id": id,
+        "rating": rating,
+        "netizen": nama,
+        "head": head,
+        "isi": isi,
+        "date": date,
+    }
+    db.comment.insert_one(doc)
+    return jsonify({"msg": "Ulasan anda berhail ditambahakan", "result": "success"})
 
 
 if __name__ == '__main__':
